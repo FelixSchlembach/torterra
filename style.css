@@ -26,24 +26,28 @@
             }
             #nav_bar_elements button {
                 border: 0;
-                font-size: 80%;
+                font-size: 100%;
                 background-color: transparent;
                 color: white;
+                border-right: 1px black solid;
+                padding: 0.5rem;
             }
             #nav_bar_elements button:hover {
                 background-color: rgb(21, 21, 21);
+                cursor: pointer;
             }
                 .nav_bar_element {
                     border-right: 1px rgb(0, 0, 0) solid;
                 }
 
                 #logo {
-                    height: 2rem;
+                    height: 3rem;
+                    padding: 0.1rem;
                 }
 
             #sub_nav_bars nav{
                 border: 1px black solid;
-                font-size: 80%;
+                font-size: 110%;
                 color: white;
             }
             #sub_nav_bars nav ul{
