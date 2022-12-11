@@ -5,73 +5,110 @@
     font-size: 105%;
     
 }
+html {
+    position: relative;
+    min-height: 100%;
+}
 
     body {
         margin: 0;
         display: grid;
         grid-auto-rows: fit-content;
         background-color: #487DE0;
+        background-color: white;
     }
 
-        nav {
-            align-items: center;
-            background-color: rgb(41, 41, 47);
-            border-bottom: 1px black solid;
-            width: 100%;
+        #navbar_container { /* navbar */
+            display: flex;
             position: fixed;
+            background-color: rgb(41, 41, 47);
+            border-bottom: 1px black solid;;
+            width: 100%;
+            height: 3rem;
         }
 
-            #nav_bar_elements{
+            #logo {
+                padding-left: 0.2rem;
+                padding-right: 0.2rem;
+                height: 3rem;
+            }
+
+            .topic {
                 display: flex;
             }
-            #nav_bar_elements button {
-                border: 0;
-                font-size: 100%;
-                background-color: transparent;
-                color: white;
-                border-right: 1px black solid;
-                padding: 0.5rem;
-            }
-            #nav_bar_elements button:hover {
-                background-color: rgb(21, 21, 21);
-                cursor: pointer;
-            }
-                .nav_bar_element {
-                    border-right: 1px rgb(0, 0, 0) solid;
+
+                .topic-button {    /* "Mathe" und "Physik" buttons */
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    background-color: transparent;
+                    color: white;
+                    border: 0;
                 }
 
-                #logo {
-                    height: 3rem;
-                    padding: 0.1rem;
-                }
+                    .dropdown { /* "Mathe" und "Physik" dropdown-menu */
+                        display: none;
+                        background-color: rgb(37, 37, 43);
+                        color: white;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        margin-top: 3rem;
+                        width: 100%;
+                        text-align: center;
+                    }
+                    .dropdown ul {  /* "Mathe" und "Physik" dropdown-menu topics */
+                        padding-left: 0;
+                        margin-left: 0;
+                    }
+                    .dropdown ul li {   /* "Mathe" und "Physik" dropdown-menu sub-topics */
+                        list-style: none;
+                        color: #487DE0;
+                    }
+                
+                /* fold down dropdown-menu and change background + dropdown symbol */
+                .topic:hover {background-color: rgb(37, 37, 43);}
+                .topic:hover .dropdown{display: block;}
+                .topic:hover .topic-button span{display: none;}
+                .topic:hover .topic-button::before{content: "▴";}
 
-            #sub_nav_bars nav{
-                border: 1px black solid;
-                font-size: 110%;
-                color: white;
-            }
-            #sub_nav_bars nav ul{
-                margin: 0;
-                padding: 0;
-                list-style: none;
-            }
-            #sub_nav_bars nav ul li{
-                padding-left: 1rem;
-                font-size: 90%;
-            }
+                .topic:active {background-color: rgb(37, 37, 43);}
+                .topic:active .dropdown{display: block;}
+                .topic:active .topic-button span{display: none;}
+                .topic:active .topic-button::before{content: "▴";}
+                
 
-        #main_page_container {
-            display: grid;
-            margin-top: 2.5rem;
-            justify-content: center;
-        }
+    #content_container {
+        background-color: white;
+        margin-top: 2rem;
+        margin-bottom: 7rem;
+    }
+    #content {
+        padding: 1rem;
+    }
+    #footer {
+        background-color: rgb(41, 41, 47);
+        border-top: 1px black solid;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        display: block;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    #footer a {
+        color: white;
+    }
+    #footer a:hover {
+        color:grey;
+    }
 
-            #main_page_content {
-                padding: 10vw;
-                width: 80vw;
-                height: fit-content;
-                background-color: white;
-            }
+    #footer div {
+        padding-top: 1rem;
+        font-size: 60%;
+        color: rgb(74, 74, 74);
+        text-align: center;
+    }
 /*
 @media screen and (max-width: 719px) {
 }
