@@ -16,13 +16,17 @@ html {
         grid-auto-rows: fit-content;
         background-color: #487DE0;
         background-color: white;
+        /*
+        background-color: rgb(20, 20, 26);
+        color: white;
+        */
     }
 
         #navbar_container { /* navbar */
             display: flex;
             position: fixed;
             background-color: rgb(41, 41, 47);
-            border-bottom: 1px black solid;;
+            /*border-bottom: 1px black solid;;*/
             width: 100%;
             height: 3rem;
         }
@@ -36,18 +40,19 @@ html {
             .topic {
                 display: flex;
             }
-
-                .topic-button {    /* "Mathe" und "Physik" buttons */
+                .topic_button {    /* "Mathe" und "Physik" buttons */
                     padding-left: 1rem;
-                    padding-right: 1rem;
+                    padding-right: 0.5rem;
                     background-color: transparent;
                     color: white;
                     border: 0;
+                    cursor: pointer;
                 }
 
                     .dropdown { /* "Mathe" und "Physik" dropdown-menu */
                         display: none;
                         background-color: rgb(37, 37, 43);
+                        border-bottom: 1px black solid;
                         color: white;
                         position: absolute;
                         left: 0;
@@ -59,6 +64,8 @@ html {
                     .dropdown ul {  /* "Mathe" und "Physik" dropdown-menu topics */
                         padding-left: 0;
                         margin-left: 0;
+                        cursor: pointer;
+                        /*text-decoration: underline;  On hover */
                     }
                     .dropdown ul li {   /* "Mathe" und "Physik" dropdown-menu sub-topics */
                         list-style: none;
@@ -66,28 +73,34 @@ html {
                     }
                 
                 /* fold down dropdown-menu and change background + dropdown symbol */
+        
                 .topic:hover {background-color: rgb(37, 37, 43);}
+                
+                /*
                 .topic:hover .dropdown{display: block;}
                 .topic:hover .topic-button span{display: none;}
-                .topic:hover .topic-button::before{content: "▴";}
+                .topic-button::after{content: "▾";}
+                .topic:hover .topic-button::after{content: "▴";}
 
                 .topic:active {background-color: rgb(37, 37, 43);}
                 .topic:active .dropdown{display: block;}
                 .topic:active .topic-button span{display: none;}
-                .topic:active .topic-button::before{content: "▴";}
-                
+                .topic-button::after{content: "▾";}
+                .topic:active .topic-button::after{content: "▴";}
+                */
 
     #content_container {
-        background-color: white;
         margin-top: 2rem;
         margin-bottom: 7rem;
     }
     #content {
-        padding: 1rem;
+        margin: auto;
+        padding: 2rem;
+        max-width: 60rem;
     }
     #footer {
         background-color: rgb(41, 41, 47);
-        border-top: 1px black solid;
+        /*border-top: 1px black solid;*/
         padding-top: 1rem;
         padding-bottom: 1rem;
         display: block;
@@ -109,6 +122,23 @@ html {
         color: rgb(74, 74, 74);
         text-align: center;
     }
+
+    #mandp  {
+        margin-bottom: 0; 
+        text-align: center; 
+        color:white; 
+        font-size: 150%; 
+        background: linear-gradient(135deg, #487DE0, #48e064);
+        line-height: 3rem;
+    }
+
+
+
+       /* 0% {background-position: 100%  100%;}
+        50% {background-position: 100%  200%;}
+        75% {background-position: 200%  200%;}
+        100% {background-position: 100%  200%;}*/
+    
 /*
 @media screen and (max-width: 719px) {
 }
