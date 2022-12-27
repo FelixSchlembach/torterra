@@ -8,6 +8,7 @@
     <link rel="icon" href="favicon.ico">
     <title>Home</title>
 </head>
+
 <body onload="getTopicContent('mathe', 'topic_list_m'); getTopicContent('physik', 'topic_list_p')">
 
     <nav id="navbar_container">
@@ -32,12 +33,9 @@
                         <!--<li></li>-->
                     </ul>
                 </div>
-                <span class="close_dropdown" onclick="clickDropDownButton('close_all')" style="position: absolute; height: 100vh; width: 100vw; left: 0;"></span>
-            </nav>
-            
+                <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
+            </nav> 
         </div>
-
-        <!-- TRANSPARENT to bottom click close_all -->
 
         <div class="topic">
             <button class="topic_button" onclick="clickDropDownButton('physik')">Physik▾</button>
@@ -57,7 +55,7 @@
                         <!--<li></li>-->
                     </ul> 
                 </div>
-                <span class="close_dropdown" onclick="clickDropDownButton('close_all')" style="position: absolute; height: 100vh; width: 100vw; left: 0;"></span>
+                <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
             </nav>
         </div>
 
@@ -68,20 +66,18 @@
         
         <div id="content">
             <h1 id="mandp">MATHE & PHYSIK</h1>
-            <h1 style="margin: auto; margin-top: 0; text-align: center;">Simpel erklärt</h1>
+            <h1 id="mandp_under">Simpel erklärt</h1>
             
-
             <hr>
 
-            <h2 style="text-align: center">THEMEN</h2>
-
-            <h2 onclick="clickContentDropDownButton('mathe')" style="text-align: center; background-color: rgb(37, 37, 43); color: white; padding: 1rem; margin: 0; border-bottom: 1px black solid;">MATHE▾</h2>
-            <div id="topic_list_m" class="dropdown" style="display: none; position: relative; z-index: -1; padding-bottom: 1rem; padding-top: 1px; margin: 0;"></div>
-            <h2 onclick="clickContentDropDownButton('physik')" style="text-align: center; background-color: rgb(37, 37, 43); color: white; padding: 1rem; margin: 0; border-bottom: 1px black solid;">PHYSIK▾</h2>
-            <div id="topic_list_p" class="dropdown" style="display: none; position: relative; z-index: -1; padding-bottom: 1rem; padding-top: 1px; margin: 0;"></div>
+            <h2 class="topic_list_button" onclick="clickContentDropDownButton('mathe')">MATHE▾</h2>
+            <div id="topic_list_m" class="dropdown"></div>
+            
+            <h2 class="topic_list_button" onclick="clickContentDropDownButton('physik')">PHYSIK▾</h2>
+            <div id="topic_list_p" class="dropdown"></div>
             <br>
 
-            <h1>!CONTENT!</h1>
+            <h1>Willkommen</h1>
             <hr>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
             <h2>!CONTENT!</h2>
@@ -98,20 +94,19 @@
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
         
         </div>
+
     </div>
     
+    
     <div id="footer">
+
         <a href="impressum.html">Impressum</a>
         <div>
             WEB Projekt: Team Torterra WS 2022/23
-            
         </div>
-        
+
     </div>
     
-    
-
-
 
 </body>
 <script src="script.js"></script>
