@@ -26,9 +26,13 @@ function clickDropDownButton(source=""){
 function clickContentDropDownButton(source=""){
     if(document.getElementsByClassName("dropdown")[topics_dictionary[source]+2].style.display == "block"){
         document.getElementsByClassName("dropdown")[topics_dictionary[source]+2].style.display = "none";
+        document.getElementsByClassName("topic_list_button")[topics_dictionary[source]].style.borderBottomLeftRadius = "1rem";
+        document.getElementsByClassName("topic_list_button")[topics_dictionary[source]].style.borderBottomRightRadius = "1rem";
         
     }else{
         document.getElementsByClassName("dropdown")[topics_dictionary[source]+2].style.display = "block";
+        document.getElementsByClassName("topic_list_button")[topics_dictionary[source]].style.borderBottomLeftRadius = "0rem";
+        document.getElementsByClassName("topic_list_button")[topics_dictionary[source]].style.borderBottomRightRadius = "0rem";
     }
 }
 
