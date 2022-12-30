@@ -17,8 +17,6 @@ html {
         margin: 0;
         display: grid;
         grid-auto-rows: fit-content;
-        background-color: #487DE0;
-        background-color: whitesmoke;
         color: black;
     }
     
