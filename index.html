@@ -9,7 +9,7 @@
     <title>Home</title>
 </head>
 
-<body onload="getTopicContent('mathe', 'topic_list_m'); getTopicContent('physik', 'topic_list_p')">
+<body>
 
     <nav id="navbar_container">
 
@@ -20,16 +20,16 @@
             <nav class="dropdown">
                 <div class="dropdown_content">
                     <ul>
-                        Stochastik
-                        <li>Ziegen-Problem</li>
-                        <li>Lotto-Berechnung</li>
+                        <label>Stochastik</label>
+                        <li><a href="">Ziegen-Problem</a></li>
+                        <li><a href="">Lotto-Berechnung</a></li>
                     </ul> 
                     <ul>
-                        Statistik
+                        <label>Statistik</label>
                         <!--<li></li>-->
                     </ul> 
                     <ul>
-                        Matrizen
+                        <label>Matrizen</label>
                         <!--<li></li>-->
                     </ul>
                 </div>
@@ -42,22 +42,25 @@
             <nav class="dropdown">
                 <div class="dropdown_content">
                     <ul>
-                        Elektrik
-                        <li>Ohm'sches Gesetz</li>
-                        <li>AC/DC</li>
+                        <label>Elektrik</label>
+                        <li><a href="">Ohm'sches Gesetz</a></li>
+                        <li><a href="">AC/DC</a></li>
                     </ul> 
                     <ul>
-                        Optik
+                        <label>Optik</label>
                         <!--<li></li>-->
                     </ul> 
                     <ul>
-                        Wellen
+                        <label>Wellen</label>
                         <!--<li></li>-->
                     </ul> 
                 </div>
                 <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
             </nav>
         </div>
+
+        <button id="dark_mode_button" class="topic_button" onclick="darkMode()">☀</button>
+
 
     </nav>
 
@@ -70,28 +73,22 @@
             
             <hr>
 
-            <h2 class="topic_list_button" onclick="clickContentDropDownButton('mathe')">MATHE▾</h2>
+            <button class="topic_list_button" onclick="clickContentDropDownButton('mathe')">MATHE▾</button>
             <div id="topic_list_m" class="dropdown"></div>
             
-            <h2 class="topic_list_button" onclick="clickContentDropDownButton('physik')">PHYSIK▾</h2>
+            <button class="topic_list_button" onclick="clickContentDropDownButton('physik')">PHYSIK▾</button>
             <div id="topic_list_p" class="dropdown"></div>
             <br>
 
-            <h1>Willkommen</h1>
+            <h2 style="text-align: center;">Willkommen 👋</h2>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <h2>!CONTENT!</h2>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <h2>!CONTENT!</h2>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <h1>!CONTENT!</h1>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <h2>!CONTENT!</h2>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <h3>Was erwartet mich?</h3>
+            <p class="content_p_darkmode">Auf dieser Seite findest du Mathe und Physik Themen simpel und anschaulich erklärt.</p>
+            <h3>Wo finde ich die Themen?</h3>
+            <p>In der Navigationsleiste findest du alle Themen, welche wir auf der Seite behandeln.</p>
+            <h3>Du hast Fragen?</h3>
+            <p>Falls du Fragen oder Verbesserungen für uns hast, findest du unsere Kontaktdaten am Ende der Seite.</p>
+
         
         </div>
 
