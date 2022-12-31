@@ -114,7 +114,6 @@ html {
             font-size: 150%; 
             background: linear-gradient(135deg, #487DE0, #48e064);
             line-height: 3rem;
-            box-shadow: 0 0 1rem -0.1rem rgb(37, 37, 43);
             border-radius: 0.5rem;
         }
             #mandp_under {
@@ -165,7 +164,7 @@ html {
             padding-left: 0.5rem;
         }
         .content_p_darkmode {
-            box-shadow: 0 0 1rem -0.1rem rgb(37, 37, 43) !important;
+            box-shadow: 0 0 1rem 0.5rem rgb(37, 37, 43) !important;
         }
         #content p {
             padding: 0.5rem;
