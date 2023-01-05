@@ -29,6 +29,7 @@ html {
             height: 3rem;
             user-select: none;
             border-bottom: 2px rgb(37, 37, 43) solid;
+            z-index: 1;
         }
 
             #logo {
@@ -232,6 +233,7 @@ html {
         text-align: center;
         line-height: 75%;
         color: grey;
+        user-select: none;
     }
     .element_slideviewer_dots a:hover{
         cursor: pointer;
@@ -249,6 +251,7 @@ html {
         font-size: 200%; 
         cursor: pointer;
         top: calc(50% - 2rem);
+        user-select: none;
     }
     .element_slideviewer_arrowbutton_right {
         position: absolute;
@@ -259,6 +262,7 @@ html {
         font-size: 200%; 
         cursor: pointer;
         top: calc(50% - 2rem);
+        user-select: none;
     }
     .element_slideviewer_arrowbutton_left:hover, .element_slideviewer_arrowbutton_right:hover {
         color: #487DE0;

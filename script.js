@@ -103,87 +103,48 @@ function element_slideviewer_innit() {
         }
 
         var slideviewer_data = document.querySelectorAll(".element_slideviewer")[i].dataset.slideviewer_data_attr.split(";");
-        //console.log(slideviewer_data);
         var slideviewerID = slideviewer_data[0];
         var totalSlides = slideviewer_data[1];
         var currentSlide = slideviewer_data[2];
 
         document.querySelectorAll(".element_slideviewer_slides")[i].children[currentSlide].style.display = "block";
-        document.querySelectorAll(".element_slideviewer_dots")[i].innerHTML = "<a>•</a>".repeat(totalSlides);
+        for (var j = 0; j < totalSlides; j++){
+            document.querySelectorAll(".element_slideviewer_dots")[i].innerHTML += "<a onclick='element_slideviewer_moveSlide("+slideviewerID+", "+(j)+")'>•</a>";
+        }
         document.querySelectorAll(".element_slideviewer_dots")[i].children[currentSlide].classList.add("element_slideviewer_dots_active");
         document.querySelectorAll(".element_slideviewer .element_slideviewer_arrowbutton_right")[i].innerHTML = "❯";
         document.querySelectorAll(".element_slideviewer .element_slideviewer_arrowbutton_left")[i].innerHTML = "❮";
 
-        //console.error(i, slideviewerID);
-        document.querySelectorAll(".element_slideviewer_arrowbutton_right")[i].setAttribute("onclick", "element_slideviewer_moveSlide("+slideviewerID+", 'right')");
-        document.querySelectorAll(".element_slideviewer_arrowbutton_left")[i].setAttribute("onclick", "element_slideviewer_moveSlide("+slideviewerID+", 'left')");
+        document.querySelectorAll(".element_slideviewer_arrowbutton_right")[i].setAttribute("onclick", "element_slideviewer_moveSlide_right("+slideviewerID+")");
+        document.querySelectorAll(".element_slideviewer_arrowbutton_left")[i].setAttribute("onclick", "element_slideviewer_moveSlide_left("+slideviewerID+")");
     }
 }
 
-/*
- 
-OXX -> XXO +2 = button-currenSlide = 3 - 1 =  2
-XXO -> OXX -2 = button-currenSlide = 1 - 3 = -2
+function element_slideviewer_moveSlide_right(slideviewerID=""){
+    element_slideviewer_moveSlide(slideviewerID, parseInt(document.querySelectorAll(".element_slideviewer")[slideviewerID].dataset.slideviewer_data_attr.split(";")[2])+1);
+}
+function element_slideviewer_moveSlide_left(slideviewerID=""){
+    element_slideviewer_moveSlide(slideviewerID, parseInt(document.querySelectorAll(".element_slideviewer")[slideviewerID].dataset.slideviewer_data_attr.split(";")[2])-1);
+}
 
-*/
-
-
-function element_slideviewer_moveSlide(source="", direction="") {
+function element_slideviewer_moveSlide(source="", show_slide="") {
     var slideviewer_data = document.querySelectorAll(".element_slideviewer")[source].dataset.slideviewer_data_attr.split(";");
     var totalSlides = parseInt(slideviewer_data[1]);
     var currentSlide = parseInt(slideviewer_data[2]);
+    var show_slide = parseInt(show_slide);
     var slideviewer_source = document.querySelectorAll(".element_slideviewer")[source];
 
-    console.error(slideviewer_data);
-
-    if(direction == "right" && currentSlide+1 != totalSlides) { // normal right
-        slideviewer_source.setAttribute("data-slideviewer_data_attr", slideviewer_source.dataset.slideviewer_data_attr.split(";")[0]+";"+slideviewer_source.dataset.slideviewer_data_attr.split(";")[1]+";"+(currentSlide+1));
-
-        console.warn("r1", currentSlide);
-
-        document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[currentSlide].style.display = "none";
-        document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[currentSlide+1].style.display = "block";
-
-        document.querySelectorAll(".element_slideviewer_dots")[source].children[currentSlide].classList.remove("element_slideviewer_dots_active");
-        document.querySelectorAll(".element_slideviewer_dots")[source].children[currentSlide+1].classList.add("element_slideviewer_dots_active");
-        console.debug("r1");
+    if(show_slide == totalSlides){
+        show_slide = 0;
+    }else if(show_slide < 0){
+        show_slide = totalSlides-1;
     }
-    else if(direction == "right" && currentSlide+1 == totalSlides){ // right over the last slide
-        slideviewer_source.setAttribute("data-slideviewer_data_attr", slideviewer_source.dataset.slideviewer_data_attr.split(";")[0]+";"+slideviewer_source.dataset.slideviewer_data_attr.split(";")[1]+";"+"0");
 
-        console.warn("r2", currentSlide);
+    slideviewer_source.setAttribute("data-slideviewer_data_attr", slideviewer_source.dataset.slideviewer_data_attr.split(";")[0]+";"+slideviewer_source.dataset.slideviewer_data_attr.split(";")[1]+";"+show_slide);
 
-        document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[currentSlide].style.display = "none";
-        document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[0].style.display = "block";
+    document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[currentSlide].style.display = "none";
+    document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[show_slide].style.display = "block";
 
-        document.querySelectorAll(".element_slideviewer_dots")[source].children[currentSlide].classList.remove("element_slideviewer_dots_active");
-        document.querySelectorAll(".element_slideviewer_dots")[source].children[0].classList.add("element_slideviewer_dots_active");
-        console.debug("r2");
-    }
-    else if(direction == "left" && currentSlide-1 != -1) { // normal left
-        slideviewer_source.setAttribute("data-slideviewer_data_attr", slideviewer_source.dataset.slideviewer_data_attr.split(";")[0]+";"+slideviewer_source.dataset.slideviewer_data_attr.split(";")[1]+";"+(currentSlide-1));
-
-        console.warn("l1", currentSlide);
-
-        document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[currentSlide].style.display = "none";
-        document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[currentSlide-1].style.display = "block";
-
-        document.querySelectorAll(".element_slideviewer_dots")[source].children[currentSlide].classList.remove("element_slideviewer_dots_active");
-        document.querySelectorAll(".element_slideviewer_dots")[source].children[currentSlide-1].classList.add("element_slideviewer_dots_active");
-        console.debug("l1");
-    }
-    else if(direction == "left" && currentSlide-1 == -1){ // left over the first slide
-        slideviewer_source.setAttribute("data-slideviewer_data_attr", slideviewer_source.dataset.slideviewer_data_attr.split(";")[0]+";"+slideviewer_source.dataset.slideviewer_data_attr.split(";")[1]+";"+(totalSlides-1));
-
-        console.warn("l2", currentSlide);
-
-        document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[currentSlide].style.display = "none";
-        document.querySelectorAll(".element_slideviewer .element_slideviewer_slides")[source].children[totalSlides-1].style.display = "block";
-
-        document.querySelectorAll(".element_slideviewer_dots")[source].children[currentSlide].classList.remove("element_slideviewer_dots_active");
-        document.querySelectorAll(".element_slideviewer_dots")[source].children[totalSlides-1].classList.add("element_slideviewer_dots_active");
-        console.debug("l2");
-    }
-    console.debug(source, direction);
-    
+    document.querySelectorAll(".element_slideviewer_dots")[source].children[currentSlide].classList.remove("element_slideviewer_dots_active");
+    document.querySelectorAll(".element_slideviewer_dots")[source].children[show_slide].classList.add("element_slideviewer_dots_active");
 }
