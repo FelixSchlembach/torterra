@@ -1,0 +1,133 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico">
+    <title>Home</title>
+</head>
+
+<body onload="getTopicContent('mathe', 'topic_list_m'); getTopicContent('physik', 'topic_list_p');">
+
+    <nav id="navbar">
+
+        <a href="index.html"><img id="logo" src="TT.png"></a>
+
+        <div class="topic">
+            <button class="topic_button" onclick="clickDropDownButton('mathe')">Mathe ▾</button>
+            <nav class="dropdown">
+                <div class="dropdown_content">
+                    <ul>
+                        <label>Stochastik</label>
+                        <li><a href="mathe_montyproblem.html">Ziegen-Problem</a></li>
+                        <li><a href="">Lotto-Berechnung</a></li>
+                    </ul> 
+                    <ul>
+                        <label>Statistik</label>
+                        <!--<li></li>-->
+                    </ul> 
+                    <ul>
+                        <label>Matrizen</label>
+                        <!--<li></li>-->
+                    </ul>
+                </div>
+                <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
+            </nav> 
+        </div>
+
+        <div class="topic">
+            <button class="topic_button" onclick="clickDropDownButton('physik')">Physik ▾</button>
+            <nav class="dropdown">
+                <div class="dropdown_content">
+                    <ul>
+                        <label>Elektrik</label>
+                        <li><a href="">Ohm'sches Gesetz</a></li>
+                        <li><a href="">AC/DC</a></li>
+                    </ul> 
+                    <ul>
+                        <label>Optik</label>
+                        <!--<li></li>-->
+                    </ul> 
+                    <ul>
+                        <label>Wellen</label>
+                        <!--<li></li>-->
+                    </ul> 
+                </div>
+                <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
+            </nav>
+        </div>
+
+        <button id="dark_mode_button" class="topic_button" onclick="darkMode()">☀</button>
+
+
+    </nav>
+
+
+    <div id="content_container">
+        
+        <div id="content">
+            <span style="font-size: 140%; font-weight: bold;">&lt;h1&gt;:</span>
+            <h1>HEADER 1 / header 1</h1>
+            <br>
+            <hr>
+            <hr>
+            
+            <span style="font-size: 140%; font-weight: bold;">&lt;h2&gt;:</span>
+            <h2>HEADER 2 / header 2</h2>
+            <br>
+            <hr>
+            <hr>
+            
+            <span style="font-size: 140%; font-weight: bold;">&lt;h3&gt;:</span>
+            <h3>HEADER 3 / header 3</h3>
+            <br>
+            <hr>
+            <hr>
+
+            <span style="font-size: 140%; font-weight: bold;">&lt;h4&gt;:</span>
+            <h4>HEADER 4 / header 4</h4>
+            <br>
+            <hr>
+            <hr>
+
+            <span style="font-size: 140%; font-weight: bold;">&lt;p&gt;:</span>
+            <p>PARAGRAPH / paragraph</p>
+            
+        </div>
+
+    </div>
+    
+    
+    <footer id="footer">
+
+        <a href="impressum.html">Impressum</a>
+        <div>
+            WEB Projekt: Team Torterra WS 2022/23
+        </div>
+
+    </footer>
+    
+
+</body>
+<script src="script.js" defer></script>
+</html>
+
+
+
+<!-- slideviwer start -->
+<div class="func_slideviewer" onload="func_slideviewer_innit()">
+    <div class="func_slideviewer_slidetracker 1"></div>
+
+    <!-- slideviwer slide -->
+    <div class="func_slideviewer_slide">
+        <!-- slideviwer slide content -->
+    </div>
+
+    <button onclick="" class="func_slideviewer_arrowbutton">❮</button>
+    <button onclick="" class="func_slideviewer_arrowbutton">❯</button>
+
+    <div class="data" total_slides="1" current_slide="1"></div>
+</div>
+<!-- slideviwer end -->
