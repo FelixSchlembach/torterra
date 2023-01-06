@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico">
     <title>Home</title>
+    <script src="script.js" defer></script>
 </head>
 
-<body onload="getTopicContent('mathe', 'topic_list_m'); getTopicContent('physik', 'topic_list_p');">
+<body>
 
     <nav id="navbar">
 
@@ -94,9 +95,41 @@
 
             <span style="font-size: 140%; font-weight: bold;">&lt;p&gt;:</span>
             <p>PARAGRAPH / paragraph</p>
+            <br>
+            <hr>
+            <hr>
+
+            <span style="font-size: 140%; font-weight: bold;">&lt;div class="element_slideviewer"&gt;:</span>
+            <!-- slideviewer start -->
+            <div class="element_slideviewer">
+
+                <!-- slideviwer slide 1 -->
+                <div>
+                    <p>
+                        Slide 1
+                    </p>
+                </div>
+
+                <!-- slideviwer slide 2 -->
+                <div>
+                    <p>
+                        Slide 2
+                    </p>
+                </div>
+
+                <!-- slideviwer slide 3 -->
+                <div>
+                    <p>
+                        Slide 3
+                    </p>
+                </div>
+            </div>
+            <!-- slideviwer end -->
+            <br>
+            <hr>
+            <hr>
             
         </div>
-
     </div>
     
     
@@ -111,23 +144,4 @@
     
 
 </body>
-<script src="script.js" defer></script>
 </html>
-
-
-
-<!-- slideviwer start -->
-<div class="func_slideviewer" onload="func_slideviewer_innit()">
-    <div class="func_slideviewer_slidetracker 1"></div>
-
-    <!-- slideviwer slide -->
-    <div class="func_slideviewer_slide">
-        <!-- slideviwer slide content -->
-    </div>
-
-    <button onclick="" class="func_slideviewer_arrowbutton">❮</button>
-    <button onclick="" class="func_slideviewer_arrowbutton">❯</button>
-
-    <div class="data" total_slides="1" current_slide="1"></div>
-</div>
-<!-- slideviwer end -->
