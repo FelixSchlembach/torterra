@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="style.css">
+<a href="index.html"><img id="logo" src="TT.png" alt="Logo der Website"></a>
+
+<button class="topic_button" onclick="clickDropDownButton('mathe')">Mathe ▾</button>
+<nav class="dropdown">
+    <div class="dropdown_content">
+        <ul>
+            Stochastik
+            <li><a href="mathe-monty-hall-problem.html">Monty-Hall-Problem</a></li>
+        </ul> 
+        <ul>
+            Matrizen & Vektoren
+            <li><a href="mathe-matrizen.html">Matrizen</a></li>
+            <li><a href="mathe-vektoren.html">Vektoren</a></li>
+        </ul>
+    </div>
+    <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
+</nav> 
+
+<button class="topic_button" onclick="clickDropDownButton('physik')">Physik ▾</button>
+<nav class="dropdown">
+    <div class="dropdown_content">
+        <ul>
+            Elektrik
+            <li><a href="">Ohm'sches Gesetz</a></li>
+            <li><a href="">AC/DC</a></li>
+        </ul> 
+        <ul>
+            Optik
+            <!--<li></li>-->
+        </ul> 
+        <ul>
+            Wellen
+            <!--<li></li>-->
+        </ul> 
+    </div>
+    <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
+</nav>
+
+<button id="dark_mode_button" class="topic_button" onclick="darkMode()">☀</button>

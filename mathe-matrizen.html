@@ -1,0 +1,344 @@
+<!-- mathe-matrizen.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Matrizen - Grundlagen die jeder wissen sollte</title>
+    <meta property="og:title" content="Matrizen - Grundlagen die jeder wissen sollte">
+    <meta name ="description" content ="">
+    <meta property="og:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="TorTerra.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mathe, Physik, simpel, Erklärung, einfach, Lösung, Hilfe, Wie">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico">
+    <script src="script.js" defer></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>$(function(){$("#navbar").load("templates/navbar.html");});</script>
+    <script>$(function(){$("#footer").load("templates/footer.html");});</script>
+</head>
+
+<body>
+    <nav id="navbar"></nav>
+    
+    <div id="content_container">
+        
+        <div id="content">
+            <h1>Matrizen</h1>
+            <h2>Simpel erklärt</h2>
+
+            <h4>Inhaltsverzeichnis</h4>
+            <hr>
+            <ul>
+                <li>
+                <a href="#anchor1">Aufbau von Matrizen</a>
+                </li>
+                <li>
+                    <a href="#anchor2">Besondere Matrizen</a>
+                </li>
+                <li>
+                    <a href="#anchor3">Rechnen mit Matrizen</a>
+                </li>
+                <li>
+                    <a href="#anchor4">Übungen</a>
+                </li>
+            </ul>
+
+            <h4 id="anchor1">Aufbau von Matrizen</h4>
+            <hr>
+            <p>
+                Eine Matrize \(A\) besteht aus \(n\) Spalten mit \(m\) Zeilen. Man spricht also von einer \(m\) x \(n\) Matrix. Sie besitzt \(n\)*\(m\) Elemente \(a\).
+            </p>
+            <div class="matrix">
+                \(A =\begin{pmatrix} 
+                a_{11} & a_{12} & \cdots & a_{1n} \\ 
+                a_{21} & a_{22} & \cdots & a_{2n} \\ 
+                \vdots &\vdots & \ddots &\vdots \\ 
+                a_{m1} & a_{m2} & \cdots & a_{mn} 
+                \end{pmatrix}\) 
+            </div>
+
+            <h4 id="anchor2">Besondere Matrizen</h4>
+            <hr>
+            <p>
+                <b>Die Einheitsmatrix</b>          
+            </p>
+            <div class="matrix">
+                \(E_{n} =\begin{pmatrix}
+                1 & 0 & \dots & 0 \\
+                0 & 1 & \dots & 0 \\
+                \vdots & \vdots & \ddots & \vdots \\
+                0 & 0 & \dots & 1
+                \end{pmatrix}\)
+            </div>
+            <p>
+                Bei der Einheitsmatrix besteht die Hauptdiagonale aus Einsen und der Rest ist Null. <br>
+                Eine Matrix multipliziert mit der Einheitsmatrix, ergibt die Matrix.<br>
+                \(A_{n}*E_{n}=A_{n}\)
+            </p>
+            <p>
+                <b>Die Nullmatrix</b>          
+            </p>
+            <div class="matrix">
+                \(0_{n} =\begin{pmatrix}
+                0 & 0 & \dots & 0 \\
+                0 & 0 & \dots & 0 \\
+                \vdots & \vdots & \ddots & \vdots \\
+                0 & 0 & \dots & 0
+                \end{pmatrix}\)
+            </div>
+            <p>
+                Bei der Nullmatrix sind alle Elemente Null.<br>
+                Eine Matrix multipliziert mit der Nullmatrix, ergibt die Nullmatrix.<br>
+                \(A_{n}*0_{n}=0_{n}\)
+            </p>
+            <p>
+                <b>Die Diagonalmatrix</b>          
+            </p>
+            <div class="matrix">
+                \(D_{3} =\begin{pmatrix}
+                2 & 0 & 0 \\
+                0 & 4 & 0 \\
+                0 & 0 & 6
+                \end{pmatrix}\)
+            </div>
+            <p>
+                Bei der Diagonalmatrix besitzt nur die Hauptdiagonale Werte. Diese können aber auch Null sein.<br>
+                Eine Matrix multipliziert mit einer Diagonalmatrix, multipliziert jede Spalte der Matrix mit dem respektiven Wert in der Spalte der Diagonalmatrix.
+            </p>
+            <div class="matrix">
+                \(\begin{pmatrix}
+                2 & 2 & 2 \\
+                2 & 2 & 2 \\
+                2 & 2 & 2
+                \end{pmatrix} 
+                * 
+                \begin{pmatrix}
+                2 & 0 & 0 \\
+                0 & 3 & 0 \\
+                0 & 0 & 4
+                \end{pmatrix}=\begin{pmatrix}
+                4 & 6 & 8 \\
+                4 & 6 & 8 \\
+                4 & 6 & 8
+                \end{pmatrix} \)
+            </div>
+            <h4 id="anchor3">Rechnen mit Matrizen</h4>
+            <hr>
+            <p>
+                <b>Addition</b>
+                <br>
+                <br>
+                Es können nur Matrizen gleicher Größe addiert werden.<br>
+                \(A_{3}+B_{3}=C_{3}\)
+            </p>
+            <div class="matrix">
+                \(\begin{pmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{pmatrix} 
+                + 
+                \begin{pmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{pmatrix}=\begin{pmatrix}
+                2 & 3 & 4 \\
+                8 & 10 & 12 \\
+                14 & 16 & 18
+                \end{pmatrix} \)
+            </div>
+            <br>
+            
+            <p>
+                <b>Subtraktion</b>
+                <br>
+                <br>
+                Es können nur Matrizen gleicher Größe subtrahiert werden.<br>
+                \(A_{3}-B_{3}=C_{3}\)
+            </p>
+            <div class="matrix">
+                \(\begin{pmatrix}
+                2 & 2 & 2 \\
+                2 & 2 & 2 \\
+                2 & 2 & 2
+                \end{pmatrix} 
+                - 
+                \begin{pmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{pmatrix}=\begin{pmatrix}
+                1 & 0 & -1 \\
+                -2 & -3 & -4 \\
+                -5 & -6 & -7
+                \end{pmatrix} \)
+            </div>
+            <br>
+            
+            <p>
+                <b>Multiplikation</b>
+                <br>
+                <br>
+                Eine Matrix \(m\) x \(n\) kann mit einem Wert, einem Vektor oder einer Matrix der mit selben Spalten Anzahl wie der Multiplikator Zeilen hat.<br>
+                \(A_{xn}*B{my}\)<br>
+                \(A\in\mathbb{R}^{2\times3}*B\in\mathbb{R}^{3\times2}\)
+            </p>
+            <p>
+                \(A*x\{x\in\mathbb{R}\}\)
+            </p>
+            <div class="matrix">
+                \(\begin{pmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{pmatrix} 
+                * 
+                2
+                =
+                \begin{pmatrix}
+                1*2 & 2*2 & 3*2 \\
+                4*2 & 5*2 & 6*2 \\
+                7*2 & 8*2 & 9*2
+                \end{pmatrix} 
+                =
+                \begin{pmatrix}
+                2 & 4 & 6 \\
+                8 & 10 & 12 \\
+                14 & 16 & 18
+                \end{pmatrix} \)
+            </div>
+            <p>
+                \(A*\vec{v}\)
+            </p>
+
+            <div class="matrix">
+                \(\begin{pmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{pmatrix} 
+                * 
+                \begin{pmatrix}
+                1 \\
+                2 \\
+                3
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                1*1+2*2+3*3 \\
+                1*4+2*5+3*6 \\
+                1*7+2*8+3*9
+                \end{pmatrix} 
+                =
+                \begin{pmatrix}
+                14 \\
+                32 \\
+                50
+                \end{pmatrix} \)
+            </div>
+            <p>
+                \(A*B\)
+            </p>
+            <div class="matrix">
+                \(\begin{pmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{pmatrix} 
+                * 
+                \begin{pmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{pmatrix}
+                \)
+            </div>
+            <br>
+            <div class="matrix">
+                \(
+                =
+                \begin{pmatrix}
+                1*1+2*4*+3*7 & 1*2+2*5+3*8 & 1*3+2*6+3*9 \\
+                
+                4*1+5*2*+6*3 & 4*2+5*5+6*8 & 4*3+5*6+6*9 \\
+                                
+                7*1+8*4*+9*7 & 7*2+8*5+9*8 & 7*3+8*6+9*9
+                \end{pmatrix}\)
+            </div>
+            <br>
+            <div class="matrix">
+                \(=
+                \begin{pmatrix}
+                30 & 36 & 42 \\
+                66 & 81 & 96 \\
+                102 & 126 & 150
+                \end{pmatrix} \)
+            </div>
+            <br>
+            
+            <p>
+                <b>Division</b>
+                <br>
+                <br>
+                Eine Matrix kann entweder durch eine Zahl geteilt werden, oder mit einer Matrix aus Brüchen multipliziert werden.
+            </p>
+            <p>
+                \(A \div x \{x\in\mathbb{R},x\not=0\}\)
+            </p>
+            
+            <div class="matrix">
+                \(\begin{pmatrix}
+                1 & 2 & 3 \\
+                4 & 5 & 6 \\
+                7 & 8 & 9
+                \end{pmatrix} 
+                \div 
+                2
+                =
+                \begin{pmatrix}
+                1\div 2 & 2\div 2 & 3\div 2 \\
+                4\div 2 & 5\div 2 & 6\div 2 \\
+                7\div 2 & 8\div 2 & 9\div 2
+                \end{pmatrix} 
+                =
+                \begin{pmatrix}
+                \frac{1}{2} & 1 & 1\frac{1}{2} \\
+                2 & 2\frac{1}{2} & 3 \\
+                3\frac{1}{2} & 4 & 4\frac{1}{2}
+                \end{pmatrix} \)
+            </div>
+
+            <h4 id="anchor4">Übungen</h4>
+            <hr>
+                <div class="element_exam">
+                    <p name="anchor1">Frage 1</p>
+                    <input type="radio" name="anchor1" data-isAwnser="1"><span>1</span><br>
+                    <input type="radio" name="anchor1" data-isAwnser="0"><span>2</span><br>
+                    <input type="radio" name="anchor1" data-isAwnser="0"><span>3</span><br>
+                    <br>  
+                  
+                    <p name="anchor2">Frage 2</p>
+                    <input type="radio" name="anchor2" data-isAwnser="0"><span>1</span><br>
+                    <input type="radio" name="anchor2" data-isAwnser="0"><span>2</span><br>  
+                    <input type="radio" name="anchor2" data-isAwnser="1"><span>3</span><br>
+                    <br>
+
+                    <button class="element_exam_submit" onclick="element_exam_showResult(0)">Submit</button>
+                </div>
+                  
+        </div>
+    </div>
+    
+    
+    <footer id="footer"></footer>
+    
+</body>
+</html>

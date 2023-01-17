@@ -1,24 +1,38 @@
 /*-- style.css --*/
 
+:root {
+    --lightmode_background: whitesmoke;
+    --lightmode_color: black;
+    --lightmode_boxshadow: 0 0 1rem -0.1rem grey;
+    --lightmode_p_background: whitesmoke;
+        
+    --darkmode_background: rgb(46, 46, 53) !important; 
+    --darkmode_color: whitesmoke !important; 
+    --darkmode_boxshadow: 0 0 1rem 0.5rem rgb(31, 31, 36) !important;
+    --darkmode_p_background: rgb(41, 41, 47) !important;
+   
+    --current_background: var(--lightmode_background);
+    --current_color: var(--lightmode_color);
+    --current_boxshadow: var(--lightmode_boxshadow);
+    --current_p_background: var(--lightmode_p_background);
+}
+
 *{
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 105%;
+    scroll-margin-top: 4rem;
 }
 html {
+    font-size: 1.1rem;
     position: relative;
     height: 100%;
-    color: black;
+    font-family: 'Segoe UI', sans-serif;
 }
-    .body_darkmode {
-        background-color: rgb(46, 46, 53) !important;
-        color: whitesmoke !important;
-    }
     body {
         margin: 0;
         height: 100%;
         display: grid;
         grid-template-rows: auto min-content;
-        
+        background-color: var(--current_background);
+        color: var(--current_color);
     }
     
         #navbar { /* navbar */
@@ -47,6 +61,10 @@ html {
                     height: 100%;
                     cursor: pointer;
                     user-select: none;
+                    font-size: 1.2rem;
+                }
+                .topic_button:hover{
+                    background: rgb(37, 37, 43) !important;
                 }
 
                     .dropdown { /* "Mathe" und "Physik" dropdown-menu */
@@ -72,17 +90,20 @@ html {
                         margin-left: 0;
                         margin-top: 0;
                         padding-top: 1rem;
+                        font-size: 1.3rem;
                         /*text-decoration: underline;  On hover */
                     }
                     .dropdown ul li {   /* "Mathe" und "Physik" dropdown-menu sub-topics */
                         list-style: none;
                         color: #487DE0;
+                        font-size: 1.3rem;
                     }
                     .dropdown ul li a{   /* "Mathe" und "Physik" dropdown-menu sub-topics */
                         list-style: none;
                         color: #487DE0;
                         text-decoration: none;
                         cursor: pointer;
+                        font-size: 1.3rem;
                     }
                     .dropdown ul li a:hover{
                         font-weight: bold;
@@ -99,6 +120,7 @@ html {
         }
 
     #content_container {
+        max-width: 100vw;
         margin-top: 2rem;
         margin-bottom: 7rem;
     }
@@ -107,34 +129,7 @@ html {
         padding: 2rem;
         max-width: 60rem;
         height: 100%;
-    }
-        .topic_list_button{
-            border-radius: 1rem;
-            width: 100%;
-            border: none;
-            font-weight: bold;
-            text-align: center; 
-            background-color:rgb(37, 37, 43); 
-            color: whitesmoke; 
-            padding: 1rem; 
-            margin: 0; 
-            border-bottom: 1px black solid;
-            cursor: pointer;
-            user-select: none;
-            padding-left: 2rem;
-            margin-top: 0.1rem;
-        }
-        .topic_list {
-            display: none;
-            position: relative; 
-            padding-bottom: 1rem; 
-            padding-top: 0px; 
-            margin: 0;
-            margin-bottom: 0.1rem;
-            border-bottom-left-radius: 1rem;
-            border-bottom-right-radius: 1rem;
-        }
-
+    }   
         h1 {
             margin-bottom: 0; 
             text-align: center; 
@@ -144,10 +139,26 @@ html {
             line-height: 3rem;
             border-radius: 0.5rem;
         }
+        #homepage_h1 {
+            background-size: 200%;
+            animation: wiggle 7s ease-in-out infinite;
+        }
+        @keyframes wiggle {
+            0%{background-position: 0%;}
+            25%{background-position: 100%;}
+            50%{background-position: 0%;}
+            100%{background-position: 0%;}
+        }
+        h1:hover{
+            background-size: 200%;
+            animation: wiggle 7s ease-in-out infinite;
+        }
+
         h2 {
             margin: auto; 
             margin-top: 0; 
             text-align: center;
+            font-size: 1rem;
         }
         h3 {
             font-weight: bold;
@@ -163,16 +174,12 @@ html {
             border-left: 0.5rem #487DE0 groove;
             padding-left: 0.5rem;
         }
-        .background_darkmode {
-            background-color: rgb(41, 41, 47) !important;
-        }
-        .shadow_darkmode {
-            box-shadow: 0 0 1rem 0.5rem rgb(31, 31, 36) !important;
-        }
         p {
             padding: 0.5rem;
-            box-shadow: 0 0 1rem -0.1rem grey;
+            box-shadow: var(--current_boxshadow);
             border-radius: 0.5rem;
+            background-color: var(--current_p_background);
+            
         }
 
         #content ul li a {
@@ -191,7 +198,6 @@ html {
         padding-bottom: 1rem;
         display: block;
         text-align: center;
-        
         bottom: 0;
         width: 100%;
     }
@@ -209,6 +215,10 @@ html {
             text-align: center;
         }
 
+    .matrix{
+        overflow-x: auto;
+        white-space: nowrap;
+    }
 
 
     /* Slideviewer styles */
@@ -219,7 +229,7 @@ html {
         border-bottom-right-radius: 1rem;
         margin-bottom: 3rem;
         margin-top: 2rem;
-        box-shadow: 0 0 1rem -0.1rem grey;
+        box-shadow: var(--current_boxshadow);
     }
     
     .element_slideviewer > * {
@@ -273,7 +283,40 @@ html {
         color: #487DE0;
     }
 
-    
+    /* Slideviewer monty-prob 1 */
+    .sv_mopr_1_S_1_E_1{
+        color: rgb(223, 186, 117);
+        text-shadow: orange 1px 1px 3px;
+    }
+    .sv_mopr_1_S_1_E_2_3 {
+        color: rgb(225, 152, 166);
+        text-shadow: red 1px 1px 3px;
+    }
+    .sv_mopr_1_S_2_E_2 {
+        box-shadow: var(--current_boxshadow);
+    }
+    .sv_mopr_1_S_3_E_3 {
+        color: rgb(149, 149, 149);
+        text-shadow: rgb(255, 255, 255) 1px 1px 2px;
+
+    }
+
+    /* Exam Styles */
+    .element_exam_submit{
+        background-color: #2e8a4c;
+        border-radius: 0.5rem;
+        border-color: #309753;
+        color: white;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+    .element_exam_submit:hover{
+        background-color: #297e45;
+        cursor: pointer;
+    }
+
+
+
 /*
 @media screen and (max-width: 719px) {
 }

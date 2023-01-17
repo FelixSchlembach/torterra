@@ -1,7 +1,5 @@
 /*-- script.js --*/
 
-var topics_dictionary = {"close_all": -1 ,"mathe": 0, "physik": 1};
-
 if(localStorage.darkMode == null) {
     localStorage.darkMode = "lightmode";
 }
@@ -9,6 +7,7 @@ if(localStorage.darkMode == null) {
 checkDarkMode();
 
 function clickDropDownButton(source=""){
+    var topics_dictionary = {"close_all": -1 ,"mathe": 0, "physik": 1};
     for(var i=0; i<2; i++){
         if(topics_dictionary[source] != i || topics_dictionary[source] == -1 || document.getElementsByClassName("dropdown")[topics_dictionary[source]].style.display == "block"){
             document.getElementsByClassName("dropdown")[i].style.display = "none";
@@ -20,47 +19,21 @@ function clickDropDownButton(source=""){
         }
     }
 }
-function clickContentDropDownButton(source=""){
-    if(document.getElementsByClassName("dropdown")[topics_dictionary[source]+2].style.display == "block"){
-        document.getElementsByClassName("dropdown")[topics_dictionary[source]+2].style.display = "none";
-        document.getElementsByClassName("topic_list_button")[topics_dictionary[source]].style.borderBottomLeftRadius = "1rem";
-        document.getElementsByClassName("topic_list_button")[topics_dictionary[source]].style.borderBottomRightRadius = "1rem";
-        
-    }else{
-        document.getElementsByClassName("dropdown")[topics_dictionary[source]+2].style.display = "block";
-        document.getElementsByClassName("topic_list_button")[topics_dictionary[source]].style.borderBottomLeftRadius = "0rem";
-        document.getElementsByClassName("topic_list_button")[topics_dictionary[source]].style.borderBottomRightRadius = "0rem";
-    }
-}
-
-
-function getTopicContent(source="", destination=""){
-    document.getElementById(destination).innerHTML = document.getElementsByClassName("dropdown_content")[topics_dictionary[source.toLowerCase()]].innerHTML;
-}
 
 function darkMode(){
+    var root = document.querySelector(":root");
     if(localStorage.darkMode == "darkmode"){
-        document.body.classList.remove("body_darkmode");
-
-        document.querySelectorAll("p").forEach(element => {
-            element.classList.remove("background_darkmode");
-            element.classList.remove("shadow_darkmode");
-        });
-        document.querySelectorAll(".element_slideviewer").forEach(element => {
-            element.classList.remove("shadow_darkmode");
-        });
+        root.style.setProperty("--current_background", "var(--lightmode_background)");
+        root.style.setProperty("--current_color", "var(--lightmode_color)");
+        root.style.setProperty("--current_boxshadow", "var(--lightmode_boxshadow)");
+        root.style.setProperty("--current_p_background", "var(--lightmode_p_background)");
         localStorage.darkMode = "lightmode";
 
     }else{
-        document.body.classList.add("body_darkmode");
-
-        document.querySelectorAll("p").forEach(element => {
-            element.classList.add("background_darkmode");
-            element.classList.add("shadow_darkmode");
-        });
-        document.querySelectorAll(".element_slideviewer").forEach(element => {
-            element.classList.add("shadow_darkmode");
-        });
+        root.style.setProperty("--current_background", "var(--darkmode_background)");
+        root.style.setProperty("--current_color", "var(--darkmode_color)");
+        root.style.setProperty("--current_boxshadow", "var(--darkmode_boxshadow)");
+        root.style.setProperty("--current_p_background", "var(--darkmode_p_background)");
         localStorage.darkMode = "darkmode";
     }
 }
@@ -68,27 +41,18 @@ function darkMode(){
 
 // Set theme of last page visit / after refresh
 function checkDarkMode() {
+    var root = document.querySelector(":root");
     if(localStorage.darkMode == "darkmode"){
-        document.body.classList.add("body_darkmode");
-
-        document.querySelectorAll("p").forEach(element => {
-            element.classList.add("background_darkmode");
-            element.classList.add("shadow_darkmode");
-        });
-        document.querySelectorAll(".element_slideviewer").forEach(element => {
-            element.classList.add("shadow_darkmode");
-        });
+        root.style.setProperty("--current_background", "var(--darkmode_background)");
+        root.style.setProperty("--current_color", "var(--darkmode_color)");
+        root.style.setProperty("--current_boxshadow", "var(--darkmode_boxshadow)");
+        root.style.setProperty("--current_p_background", "var(--darkmode_p_background)");
 
     }else{
-        document.body.classList.remove("body_darkmode");
-
-        document.querySelectorAll("p").forEach(element => {
-            element.classList.remove("background_darkmode");
-            element.classList.remove("shadow_darkmode");
-        });
-        document.querySelectorAll(".element_slideviewer").forEach(element => {
-            element.classList.remove("shadow_darkmode");
-        });
+        root.style.setProperty("--current_background", "var(--lightmode_background)");
+        root.style.setProperty("--current_color", "var(--lightmode_color)");
+        root.style.setProperty("--current_boxshadow", "var(--lightmode_boxshadow)");
+        root.style.setProperty("--current_p_background", "var(--lightmode_p_background)");
     }
 }
 
@@ -118,7 +82,7 @@ function element_slideviewer_innit() {
             document.querySelectorAll(".element_slideviewer_dots")[i].innerHTML += "<a onclick='element_slideviewer_showSlide("+i+", "+(j)+")'>•</a>";  // Add as many dots as slides
         }
         document.querySelectorAll(".element_slideviewer_dots")[i].children[0].classList.add("element_slideviewer_dots_active"); // Color first dot-button
-
+        
         document.querySelectorAll(".element_slideviewer")[i].innerHTML += "<button onclick='element_slideviewer_moveSlide_left("+i+")' class='element_slideviewer_arrowbutton_left' style='display: block !important;'>❮</button>";  // Add button left
         document.querySelectorAll(".element_slideviewer")[i].innerHTML += "<button onclick='element_slideviewer_moveSlide_right("+i+")' class='element_slideviewer_arrowbutton_right' style='display: block !important;'>❯</button>"; // Add button right
     }
@@ -151,4 +115,47 @@ function element_slideviewer_showSlide(source="", show_slide="") {
 
     document.querySelectorAll(".element_slideviewer_dots")[source].children[currentSlide].classList.remove("element_slideviewer_dots_active");  // Set old dot to inactive (remove the active class)
     document.querySelectorAll(".element_slideviewer_dots")[source].children[show_slide].classList.add("element_slideviewer_dots_active");       // Set new dot to active   (add the active class)
+}
+
+/* Exercises */
+function element_exam_showResult(examIndex = 0){
+    var doReturn = [];
+    var doNotReturn = [];
+    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){
+        if(!document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio"){
+            doReturn.push(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"));
+            document.getElementsByName(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"))[0].style.border = "orange 2px solid";
+        }
+        if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio"){
+            doNotReturn.push(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"));
+        }
+    }
+    for(var i = 0; i<doNotReturn.length; i++){
+        console.log(doNotReturn)
+        document.getElementsByName(doNotReturn[i])[0].style.border = "inherit";
+    }
+    for(var i = 0; i < doReturn.length; i++){
+        if(!doNotReturn.includes(doReturn[i])){
+            return;
+        }
+    }
+    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // Remove prevoius color
+        
+        if(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio"){
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].style.color = "inherit"
+        }
+    }
+
+    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // Add color
+        console.warn(document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isAwnser)
+        if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isAwnser == 1){
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span class='element_exam_wrong' href='#anchor1'>✔️<span>";
+
+        }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0){
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a class='element_exam_wrong' href='#"+ document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name") +"' style='text-decoration:none'>❌ ⓘ<a>";
+        }
+    }
+    document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = "grey";
+    document.querySelectorAll(".element_exam_submit")[examIndex].style.border = "grey";
+    document.querySelectorAll(".element_exam_submit")[examIndex].setAttribute("onclick", "");
 }

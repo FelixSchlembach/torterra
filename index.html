@@ -2,81 +2,39 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <title>Mathe und Physik simpel erklärt - Startseite</title>
+    <meta property="og:title" content="Mathe und Physik simpel erklärt - Startseite">
+    <meta name ="description" content ="Hier findest du diverse Mathe und Physik Themen simpel und anschaulich erklärt. Hier findest du alles was du zum Erfolg in der Mittel- und Oberstufe brauchst!">
+    <meta property="og:description" content="Hier findest du diverse Mathe und Physik Themen simpel und anschaulich erklärt. Hier findest du alles was du zum Erfolg in der Mittel- und Oberstufe brauchst!">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="TorTerra.png">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mathe, Physik, simpel, Erklärung, einfach, Lösung, Hilfe, Wie">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico">
-    <title>Home</title>
     <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>$(function(){$("#navbar").load("templates/navbar.html");});</script>
+    <script>$(function(){$("#footer").load("templates/footer.html");});</script>
 </head>
 
-<body onload="getTopicContent('mathe', 'topic_list_m'); getTopicContent('physik', 'topic_list_p');">
+<body>
 
-    <nav id="navbar">
-
-        <a href="index.html"><img id="logo" src="TT.png"></a>
-
-        <button class="topic_button" onclick="clickDropDownButton('mathe')">Mathe ▾</button>
-        <nav class="dropdown">
-            <div class="dropdown_content">
-                <ul>
-                    Stochastik
-                    <li><a href="mathe_montyproblem.html">Ziegen-Problem</a></li>
-                    <li><a href="">Lotto-Berechnung</a></li>
-                </ul> 
-                <ul>
-                    Statistik
-                    <!--<li></li>-->
-                </ul> 
-                <ul>
-                    Matrizen
-                    <!--<li></li>-->
-                </ul>
-            </div>
-            <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
-        </nav> 
-
-        <button class="topic_button" onclick="clickDropDownButton('physik')">Physik ▾</button>
-        <nav class="dropdown">
-            <div class="dropdown_content">
-                <ul>
-                    Elektrik
-                    <li><a href="">Ohm'sches Gesetz</a></li>
-                    <li><a href="">AC/DC</a></li>
-                </ul> 
-                <ul>
-                    Optik
-                    <!--<li></li>-->
-                </ul> 
-                <ul>
-                    Wellen
-                    <!--<li></li>-->
-                </ul> 
-            </div>
-            <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
-        </nav>
-
-        <button id="dark_mode_button" class="topic_button" onclick="darkMode()">☀</button>
-
-    </nav>
-
+    <nav id="navbar"></nav>
 
     <div id="content_container">
         
         <div id="content">
-            <h1>MATHE & PHYSIK</h1>
+            <h1 id="homepage_h1">MATHE & PHYSIK</h1>
             <h2>Simpel erklärt</h2>
             <hr>
 
-            <button class="topic_list_button" onclick="clickContentDropDownButton('mathe')">MATHE ▾</button>
-            <div id="topic_list_m" class="dropdown topic_list"></div>
-            
-            <button class="topic_list_button" onclick="clickContentDropDownButton('physik')">PHYSIK ▾</button>
-            <div id="topic_list_p" class="dropdown topic_list"></div>
-            <br>
-
             <h3>Willkommen 👋</h3>
-            <hr>
+            <br>
 
             <h4>Was erwartet mich?</h3>
             <p>Auf dieser Seite findest du Mathe und Physik Themen simpel und anschaulich erklärt.</p>
@@ -91,14 +49,7 @@
     </div>
     
     
-    <footer id="footer">
-
-        <a href="impressum.html">Impressum</a>
-        <div>
-            WEB Projekt: Team Torterra WS 2022/23
-        </div>
-
-    </footer>
+    <footer id="footer"></footer>
     
 </body>
 </html>
