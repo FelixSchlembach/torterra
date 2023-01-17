@@ -1,16 +1,19 @@
 /*-- style.css --*/
 
 :root {
+    --lightmode_button_content: "🌙";
     --lightmode_background: whitesmoke;
     --lightmode_color: black;
     --lightmode_boxshadow: 0 0 1rem -0.1rem grey;
     --lightmode_p_background: whitesmoke;
         
+    --darkmode_button_content: "☀️";
     --darkmode_background: rgb(46, 46, 53) !important; 
     --darkmode_color: whitesmoke !important; 
     --darkmode_boxshadow: 0 0 1rem 0.5rem rgb(31, 31, 36) !important;
     --darkmode_p_background: rgb(41, 41, 47) !important;
    
+    --current_button_content: var(--lightmode_button_content);
     --current_background: var(--lightmode_background);
     --current_color: var(--lightmode_color);
     --current_boxshadow: var(--lightmode_boxshadow);
@@ -117,6 +120,9 @@ html {
             margin-right: 0;
             padding-right: 1rem;
             height: 100%;
+        }
+        #dark_mode_button::after {
+            content: var(--current_button_content);
         }
 
     #content_container {

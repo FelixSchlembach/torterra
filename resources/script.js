@@ -23,6 +23,7 @@ function clickDropDownButton(source=""){
 function darkMode(){
     var root = document.querySelector(":root");
     if(localStorage.darkMode == "darkmode"){
+        root.style.setProperty("--current_button_content", "var(--lightmode_button_content");
         root.style.setProperty("--current_background", "var(--lightmode_background)");
         root.style.setProperty("--current_color", "var(--lightmode_color)");
         root.style.setProperty("--current_boxshadow", "var(--lightmode_boxshadow)");
@@ -30,6 +31,7 @@ function darkMode(){
         localStorage.darkMode = "lightmode";
 
     }else{
+        root.style.setProperty("--current_button_content", "var(--darkmode_button_content");
         root.style.setProperty("--current_background", "var(--darkmode_background)");
         root.style.setProperty("--current_color", "var(--darkmode_color)");
         root.style.setProperty("--current_boxshadow", "var(--darkmode_boxshadow)");
@@ -43,12 +45,14 @@ function darkMode(){
 function checkDarkMode() {
     var root = document.querySelector(":root");
     if(localStorage.darkMode == "darkmode"){
+        root.style.setProperty("--current_button_content", "var(--darkmode_button_content");
         root.style.setProperty("--current_background", "var(--darkmode_background)");
         root.style.setProperty("--current_color", "var(--darkmode_color)");
         root.style.setProperty("--current_boxshadow", "var(--darkmode_boxshadow)");
         root.style.setProperty("--current_p_background", "var(--darkmode_p_background)");
 
     }else{
+        root.style.setProperty("--current_button_content", "var(--lightmode_button_content");
         root.style.setProperty("--current_background", "var(--lightmode_background)");
         root.style.setProperty("--current_color", "var(--lightmode_color)");
         root.style.setProperty("--current_boxshadow", "var(--lightmode_boxshadow)");
@@ -124,7 +128,7 @@ function element_exam_showResult(examIndex = 0){
     for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){
         if(!document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio"){
             doReturn.push(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"));
-            document.getElementsByName(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"))[0].style.border = "orange 2px solid";
+            document.getElementsByClassName(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"))[0].style.border = "orange 2px solid";
         }
         if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio"){
             doNotReturn.push(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"));
@@ -132,7 +136,7 @@ function element_exam_showResult(examIndex = 0){
     }
     for(var i = 0; i<doNotReturn.length; i++){
         console.log(doNotReturn)
-        document.getElementsByName(doNotReturn[i])[0].style.border = "inherit";
+        document.getElementsByClassName(doNotReturn[i])[0].style.border = "inherit";
     }
     for(var i = 0; i < doReturn.length; i++){
         if(!doNotReturn.includes(doReturn[i])){
@@ -145,8 +149,10 @@ function element_exam_showResult(examIndex = 0){
             document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span style='color:lime; font-weight:bold'>\ ✓<span>";
             console.log("x")
 
-        }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0){
-            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a href='#"+ document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name") +"' style='text-decoration:none; color:red; font-weight:bold'>\ ✘ <span style='color:var(--current_color); font-weight:bold'>ⓘ</span></a>";
+        }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0 && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor){
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a href='"+ document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor +"' style='text-decoration:none; color:red; font-weight:bold'>\ ✘ <span style='color:var(--current_color); font-weight:bold'>ⓘ</span></a>";
+        }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0 && !document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor){
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span style='text-decoration:none; color:red; font-weight:bold'>\ ✘</span>";
         }
     }
     document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = "grey";
