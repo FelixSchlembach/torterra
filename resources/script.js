@@ -139,13 +139,6 @@ function element_exam_showResult(examIndex = 0){
             return;
         }
     }
-    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // Remove prevoius color
-        
-        if(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio"){
-            document.querySelectorAll(".element_exam")[examIndex].children[i+1].style.color = "inherit"
-        }
-    }
-
     for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // Add color
         console.warn(document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isAwnser)
         if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 1){
@@ -153,7 +146,7 @@ function element_exam_showResult(examIndex = 0){
             console.log("x")
 
         }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0){
-            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a href='#"+ document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name") +"' style='text-decoration:none; color:red; font-weight:bold'>\ ✘ ⓘ<a>";
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a href='#"+ document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name") +"' style='text-decoration:none; color:red; font-weight:bold'>\ ✘ <span style='color:var(--current_color); font-weight:bold'>ⓘ</span></a>";
         }
     }
     document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = "grey";
