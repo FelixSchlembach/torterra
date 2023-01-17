@@ -1,34 +1,48 @@
 /*-- style.css --*/
 
+:root {
+    --lightmode_background: whitesmoke;
+    --lightmode_color: black;
+    --lightmode_boxshadow: 0 0 1rem -0.1rem grey;
+    --lightmode_p_background: whitesmoke;
+        
+    --darkmode_background: rgb(46, 46, 53) !important; 
+    --darkmode_color: whitesmoke !important; 
+    --darkmode_boxshadow: 0 0 1rem 0.5rem rgb(31, 31, 36) !important;
+    --darkmode_p_background: rgb(41, 41, 47) !important;
+   
+    --current_background: var(--lightmode_background);
+    --current_color: var(--lightmode_color);
+    --current_boxshadow: var(--lightmode_boxshadow);
+    --current_p_background: var(--lightmode_p_background);
+}
+
 *{
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 105%;
-    
+    scroll-margin-top: 4rem;
 }
 html {
+    font-size: 1.1rem;
     position: relative;
-    min-height: 100%;
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
 }
-    .body_darkmode {
-        background-color: rgb(46, 46, 53) !important;
-        color: whitesmoke !important;
-    }
     body {
         margin: 0;
+        height: 100%;
         display: grid;
-        grid-auto-rows: fit-content;
-        background-color: #487DE0;
-        background-color: whitesmoke;
-        color: black;
+        grid-template-rows: auto min-content;
+        background-color: var(--current_background);
+        color: var(--current_color);
     }
     
-        #navbar_container { /* navbar */
+        #navbar { /* navbar */
             display: flex;
             position: fixed;
             background-color: rgb(41, 41, 47);
             width: 100%;
             height: 3rem;
             user-select: none;
+            border-bottom: 2px rgb(37, 37, 43) solid;
             z-index: 1;
         }
 
@@ -38,17 +52,19 @@ html {
                 height: 3rem;
             }
 
-            .topic {
-                display: flex;
-            }
                 .topic_button {    /* "Mathe" und "Physik" buttons */
                     padding-left: 1rem;
                     padding-right: 0.5rem;
                     background-color: transparent;
                     color: whitesmoke;
                     border: 0;
+                    height: 100%;
                     cursor: pointer;
                     user-select: none;
+                    font-size: 1.2rem;
+                }
+                .topic_button:hover{
+                    background: rgb(37, 37, 43) !important;
                 }
 
                     .dropdown { /* "Mathe" und "Physik" dropdown-menu */
@@ -74,17 +90,20 @@ html {
                         margin-left: 0;
                         margin-top: 0;
                         padding-top: 1rem;
+                        font-size: 1.3rem;
                         /*text-decoration: underline;  On hover */
                     }
                     .dropdown ul li {   /* "Mathe" und "Physik" dropdown-menu sub-topics */
                         list-style: none;
                         color: #487DE0;
+                        font-size: 1.3rem;
                     }
                     .dropdown ul li a{   /* "Mathe" und "Physik" dropdown-menu sub-topics */
                         list-style: none;
                         color: #487DE0;
                         text-decoration: none;
                         cursor: pointer;
+                        font-size: 1.3rem;
                     }
                     .dropdown ul li a:hover{
                         font-weight: bold;
@@ -101,6 +120,7 @@ html {
         }
 
     #content_container {
+        max-width: 100vw;
         margin-top: 2rem;
         margin-bottom: 7rem;
     }
@@ -108,76 +128,68 @@ html {
         margin: auto;
         padding: 2rem;
         max-width: 60rem;
-    }
-        #mandp {
+        height: 100%;
+    }   
+        h1 {
             margin-bottom: 0; 
             text-align: center; 
             color:whitesmoke; 
             font-size: 150%; 
             background: linear-gradient(135deg, #487DE0, #48e064);
             line-height: 3rem;
-            box-shadow: 0 0 1rem -0.1rem rgb(37, 37, 43);
             border-radius: 0.5rem;
         }
-            #mandp_under {
-                margin: auto; 
-                margin-top: 0; 
-                text-align: center;
-            }
+        #homepage_h1 {
+            background-size: 200%;
+            animation: wiggle 7s ease-in-out infinite;
+        }
+        @keyframes wiggle {
+            0%{background-position: 0%;}
+            25%{background-position: 100%;}
+            50%{background-position: 0%;}
+            100%{background-position: 0%;}
+        }
+        h1:hover{
+            background-size: 200%;
+            animation: wiggle 7s ease-in-out infinite;
+        }
 
-        .topic_list_button{
-            border-top-left-radius: 1rem;
-            width: 100%;
-            border: none;
+        h2 {
+            margin: auto; 
+            margin-top: 0; 
+            text-align: center;
+            font-size: 1rem;
+        }
+        h3 {
             font-weight: bold;
-            text-align: center; 
-            background-color:rgb(37, 37, 43); 
-            color: whitesmoke; 
-            padding: 1rem; 
-            margin: 0; 
-            border-bottom: 1px black solid;
-            cursor: pointer;
-            user-select: none;
-            padding-left: 2rem;
-            margin-top: 0.1rem;
+            font-size: 130%;
+            margin-bottom: 0rem;
+            text-align: center;
         }
-        #topic_list_p {
-            display: none;
-            position: relative; 
-            padding-bottom: 1rem; 
-            padding-top: 0px; 
-            margin: 0;
-            margin-bottom: 0.1rem;
-        }
-        #topic_list_m {
-            display: none;
-            position: relative; 
-            padding-bottom: 1rem; 
-            padding-top: 1px; 
-            margin: 0;
-            margin-bottom: 0.1rem;
-        }
-
-        #content h2 {
+        h4 {
             font-weight: bold;
             font-size: 120%;
-            margin-bottom: 0rem;
-        }
-        #content h3 {
-            font-weight: bold;
-            font-size: 110%;
             margin-bottom: 0rem;
             font-style: italic;
             border-left: 0.5rem #487DE0 groove;
             padding-left: 0.5rem;
         }
-        .content_p_darkmode {
-            box-shadow: 0 0 1rem -0.1rem rgb(37, 37, 43) !important;
-        }
-        #content p {
+        p {
             padding: 0.5rem;
-            box-shadow: 0 0 1rem -0.1rem grey;
+            box-shadow: var(--current_boxshadow);
             border-radius: 0.5rem;
+            background-color: var(--current_p_background);
+            
+        }
+
+        #content ul li a {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #content ul li a:hover {
+            color: #487DE0;
+            font-weight: bold;
         }
 
     #footer {
@@ -186,7 +198,6 @@ html {
         padding-bottom: 1rem;
         display: block;
         text-align: center;
-        position: absolute;
         bottom: 0;
         width: 100%;
     }
@@ -204,7 +215,108 @@ html {
             text-align: center;
         }
 
+    .matrix{
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+
+    /* Slideviewer styles */
+    .element_slideviewer {
+        position: relative;
+        border-radius: 0.5rem;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+        box-shadow: var(--current_boxshadow);
+    }
     
+    .element_slideviewer > * {
+        display: none;
+    }
+    .element_slideviewer_dots { 
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        color: grey;
+        user-select: none;
+        bottom: -2rem;
+    }
+    .element_slideviewer_dots a{
+        display: inline-block; 
+        font-size: 45px;
+
+    }
+    .element_slideviewer_dots a:hover{
+        cursor: pointer;
+        color: #487DE0;
+    }
+    .element_slideviewer_dots_active { 
+        color: #487DE0;
+    }
+    .element_slideviewer_arrowbutton_left {
+        position: absolute;
+        left: -1.7rem;
+        background-color: transparent; 
+        color: inherit; 
+        border: none; 
+        font-size: 200%; 
+        cursor: pointer;
+        top: -0.4rem;
+        user-select: none;
+        height: 100%;
+    }
+    .element_slideviewer_arrowbutton_right {
+        position: absolute;
+        right: -1.7rem;
+        background-color: transparent; 
+        color: inherit; 
+        border: none; 
+        font-size: 200%; 
+        cursor: pointer;
+        top: -0.4rem;
+        user-select: none;
+        height: 100%;
+    }
+    .element_slideviewer_arrowbutton_left:hover, .element_slideviewer_arrowbutton_right:hover {
+        color: #487DE0;
+    }
+
+    /* Slideviewer monty-prob 1 */
+    .sv_mopr_1_S_1_E_1{
+        color: rgb(223, 186, 117);
+        text-shadow: orange 1px 1px 3px;
+    }
+    .sv_mopr_1_S_1_E_2_3 {
+        color: rgb(225, 152, 166);
+        text-shadow: red 1px 1px 3px;
+    }
+    .sv_mopr_1_S_2_E_2 {
+        box-shadow: var(--current_boxshadow);
+    }
+    .sv_mopr_1_S_3_E_3 {
+        color: rgb(149, 149, 149);
+        text-shadow: rgb(255, 255, 255) 1px 1px 2px;
+
+    }
+
+    /* Exam Styles */
+    .element_exam_submit{
+        background-color: #2e8a4c;
+        border-radius: 0.5rem;
+        border-color: #309753;
+        color: white;
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+    .element_exam_submit:hover{
+        background-color: #297e45;
+        cursor: pointer;
+    }
+
+
+
 /*
 @media screen and (max-width: 719px) {
 }

@@ -2,91 +2,45 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <title>Mathe und Physik simpel erklärt - Startseite</title>
+    <meta property="og:title" content="Mathe und Physik simpel erklärt - Startseite">
+    <meta name ="description" content ="Hier findest du diverse Mathe und Physik Themen simpel und anschaulich erklärt. Hier findest du alles was du zum Erfolg in der Mittel- und Oberstufe brauchst!">
+    <meta property="og:description" content="Hier findest du diverse Mathe und Physik Themen simpel und anschaulich erklärt. Hier findest du alles was du zum Erfolg in der Mittel- und Oberstufe brauchst!">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="TorTerra.png">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mathe, Physik, simpel, Erklärung, einfach, Lösung, Hilfe, Wie">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico">
-    <title>Home</title>
+    <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>$(function(){$("#navbar").load("templates/navbar.html");});</script>
+    <script>$(function(){$("#footer").load("templates/footer.html");});</script>
 </head>
 
 <body>
 
-    <nav id="navbar_container">
-
-        <a href="index.html"><img id="logo" src="TT.png"></a>
-
-        <div class="topic">
-            <button class="topic_button" onclick="clickDropDownButton('mathe')">Mathe▾</button>
-            <nav class="dropdown">
-                <div class="dropdown_content">
-                    <ul>
-                        <label>Stochastik</label>
-                        <li><a href="">Ziegen-Problem</a></li>
-                        <li><a href="">Lotto-Berechnung</a></li>
-                    </ul> 
-                    <ul>
-                        <label>Statistik</label>
-                        <!--<li></li>-->
-                    </ul> 
-                    <ul>
-                        <label>Matrizen</label>
-                        <!--<li></li>-->
-                    </ul>
-                </div>
-                <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
-            </nav> 
-        </div>
-
-        <div class="topic">
-            <button class="topic_button" onclick="clickDropDownButton('physik')">Physik▾</button>
-            <nav class="dropdown">
-                <div class="dropdown_content">
-                    <ul>
-                        <label>Elektrik</label>
-                        <li><a href="">Ohm'sches Gesetz</a></li>
-                        <li><a href="">AC/DC</a></li>
-                    </ul> 
-                    <ul>
-                        <label>Optik</label>
-                        <!--<li></li>-->
-                    </ul> 
-                    <ul>
-                        <label>Wellen</label>
-                        <!--<li></li>-->
-                    </ul> 
-                </div>
-                <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
-            </nav>
-        </div>
-
-        <button id="dark_mode_button" class="topic_button" onclick="darkMode()">☀</button>
-
-
-    </nav>
-
+    <nav id="navbar"></nav>
 
     <div id="content_container">
         
         <div id="content">
-            <h1 id="mandp">MATHE & PHYSIK</h1>
-            <h1 id="mandp_under">Simpel erklärt</h1>
-            
+            <h1 id="homepage_h1">MATHE & PHYSIK</h1>
+            <h2>Simpel erklärt</h2>
             <hr>
 
-            <button class="topic_list_button" onclick="clickContentDropDownButton('mathe')">MATHE▾</button>
-            <div id="topic_list_m" class="dropdown"></div>
-            
-            <button class="topic_list_button" onclick="clickContentDropDownButton('physik')">PHYSIK▾</button>
-            <div id="topic_list_p" class="dropdown"></div>
+            <h3>Willkommen 👋</h3>
             <br>
 
-            <h2 style="text-align: center;">Willkommen 👋</h2>
-            <hr>
-            <h3>Was erwartet mich?</h3>
-            <p class="content_p_darkmode">Auf dieser Seite findest du Mathe und Physik Themen simpel und anschaulich erklärt.</p>
-            <h3>Wo finde ich die Themen?</h3>
+            <h4>Was erwartet mich?</h3>
+            <p>Auf dieser Seite findest du Mathe und Physik Themen simpel und anschaulich erklärt.</p>
+            <h4>Wo finde ich die Themen?</h3>
             <p>In der Navigationsleiste findest du alle Themen, welche wir auf der Seite behandeln.</p>
-            <h3>Du hast Fragen?</h3>
+            <h4>Du hast Fragen?</h3>
             <p>Falls du Fragen oder Verbesserungen für uns hast, findest du unsere Kontaktdaten am Ende der Seite.</p>
 
         
@@ -95,16 +49,7 @@
     </div>
     
     
-    <div id="footer">
-
-        <a href="impressum.html">Impressum</a>
-        <div>
-            WEB Projekt: Team Torterra WS 2022/23
-        </div>
-
-    </div>
+    <footer id="footer"></footer>
     
-
 </body>
-<script src="script.js"></script>
 </html>
