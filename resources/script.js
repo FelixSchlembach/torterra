@@ -148,11 +148,12 @@ function element_exam_showResult(examIndex = 0){
 
     for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // Add color
         console.warn(document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isAwnser)
-        if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isAwnser == 1){
-            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span class='element_exam_wrong' href='#anchor1'>✔️<span>";
+        if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 1){
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span>✔️<span>";
+            console.log("x")
 
         }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0){
-            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a class='element_exam_wrong' href='#"+ document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name") +"' style='text-decoration:none'>❌ ⓘ<a>";
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a href='#"+ document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name") +"' style='text-decoration:none'>❌ ⓘ<a>";
         }
     }
     document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = "grey";
