@@ -52,6 +52,10 @@ html {
                 height: 3rem;
             }
 
+            #logo2{
+                width: 100%;
+            }
+
                 .topic_button {    /* "Mathe" und "Physik" buttons */
                     padding-left: 1rem;
                     padding-right: 0.5rem;
@@ -190,6 +194,35 @@ html {
         #content ul li a:hover {
             color: #487DE0;
             font-weight: bold;
+        }
+
+        #kontakt{
+            display: block;
+            margin: auto;
+            padding: 0.5rem;
+            font-size: 130%;
+	        padding-left: 0.5rem;
+	        margin-bottom: 0.5rem;
+            background-color: var(--current_p_background);
+            color: var(--current_color);
+            border: none;
+            box-shadow: var(--current_boxshadow);
+            border-radius: 0.5rem;
+            
+        }
+        #absenden{
+            display: block;
+            margin: auto;
+            margin-top:  0.5rem;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            color: white;
+            background-color: var(--darkmode_p_background);
+            box-shadow: var(--current_boxshadow);
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 150%;
+            cursor: pointer;
         }
 
     #footer {

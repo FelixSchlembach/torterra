@@ -1,0 +1,51 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Mathe und Physik simpel erklärt - Startseite</title>
+    <meta property="og:title" content="Mathe und Physik simpel erklärt - Startseite">
+    <meta name ="description" content ="Hier findest du diverse Mathe und Physik Themen simpel und anschaulich erklärt. Hier findest du alles was du zum Erfolg in der Mittel- und Oberstufe brauchst!">
+    <meta property="og:description" content="Hier findest du diverse Mathe und Physik Themen simpel und anschaulich erklärt. Hier findest du alles was du zum Erfolg in der Mittel- und Oberstufe brauchst!">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="./resources/TorTerra.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mathe, Physik, simpel, Erklärung, einfach, Lösung, Hilfe, Wie">
+    <link rel="stylesheet" href="./resources/style.css">
+    <link rel="icon" href="./resources/favicon.ico">
+    <script src="./resources/script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>$(function(){$("#navbar").load("./templates/navbar.html");});</script>
+    <script>$(function(){$("#footer").load("./templates/footer.html");});</script>
+</head>
+
+<body>
+
+    <nav id="navbar"></nav>
+
+    <div id="content_container">
+        
+        <div id="content">
+            <h1 id="mandp">Impressum</h1>
+            <h2 id="mandp_under">Team Torterra</h2>
+            <hr>
+            <br>
+            <form action="https://formspree.io/f/mayznjap" method="POST">
+                <input name="Vormane" id="kontakt" type="text" placeholder="Vorname"></input>
+                <input name="Nachname" id="kontakt" type="text" placeholder="Nachname"></input>
+                <input name="Email" id="kontakt" type="email" placeholder="Email" required></input>
+                <textarea name="Nachricht" id="kontakt" rows="8" cols="" placeholder="Nachricht" required></textarea>
+                <b><input id="absenden" type="submit"></input></b>
+            </form>
+            <img id="logo2" src="./resources/TorTerra.png">
+        </div>
+
+    </div>
+
+    <footer id="footer"></footer>
+    
+</body>
+</html>
