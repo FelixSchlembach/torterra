@@ -367,8 +367,20 @@ html {
         background-color: #297e45;
         cursor: pointer;
     }
-
-
+    .element_exam_reset{
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: grey;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .element_exam_reset:hover{
+        color: #2e8a4c !important;
+    }
+    .element_exam_reset:active{
+        color: #297e45 !important;
+    }
 
 /*
 @media screen and (max-width: 719px) {

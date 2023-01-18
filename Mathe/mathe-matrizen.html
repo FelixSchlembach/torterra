@@ -183,12 +183,12 @@
             </div>
             <br>
             
-            <p>
+            <p id="anchor_multip">
                 <b>Multiplikation</b>
                 <br>
                 <br>
                 Eine Matrix \(m\) x \(n\) kann mit einem Wert, einem Vektor oder einer Matrix der mit selben Spalten Anzahl wie der Multiplikator Zeilen hat.<br>
-                \(A_{xn}*B{my}\)<br>
+                \(\hookrightarrow n_{1}=m_{2}\)<br>
                 \(A\in\mathbb{R}^{2\times3}*B\in\mathbb{R}^{3\times2}\)
             </p>
             <p>
@@ -318,21 +318,21 @@
 
             <h4 id="anchor4">Übungen</h4>
             <hr>
-                <div class="element_exam">
-                    <p class="frage1">Frage 1</p>
-                    <input type="radio" name="frage1" data-anchor="#anchor1" data-isawnser="1"><span>1</span><br>
-                    <input type="radio" name="frage1" data-anchor="#anchor1" data-isawnser="0"><span>2</span><br>
-                    <input type="radio" name="frage1" data-anchor="#anchor1" data-isawnser="0"><span>3</span><br>
-                    <br>  
-                  
-                    <p class="frage2">Frage 2</p>
-                    <input type="radio" name="frage2" data-anchor="#anchor2" data-isawnser="0"><span>1</span><br>
-                    <input type="radio" name="frage2" data-anchor="#anchor2" data-isawnser="0"><span>2</span><br>  
-                    <input type="radio" name="frage2" data-anchor="#anchor2" data-isawnser="1"><span>3</span><br>
-                    <br>
+            <div class="element_exam">
+                <p class="frage1">Eine Matrize hat \(n\) Spalten und \(m\) Zeilen</p>
+                <input type="radio" name="frage1" data-anchor="#anchor1" data-isawnser="1"><span>Ja</span><br>
+                <input type="radio" name="frage1" data-anchor="#anchor1" data-isawnser="0"><span>Nein</span><br>
+                <br>  
+                
+                <p class="frage2">Man kann Matrizen multiplizieren wenn:</p>
+                <input type="radio" name="frage2" data-anchor="#anchor_multip" data-isawnser="0"><span>\(n_{1}\lt m_{2}\)</span><br>
+                <input type="radio" name="frage2" data-anchor="#anchor_multip" data-isawnser="1"><span>\(n_{1} = m_{2}\)</span><br>  
+                <input type="radio" name="frage2" data-anchor="#anchor_multip" data-isawnser="0"><span>\(n_{1}\gt m_{2}\)</span><br>
+                <br>
 
-                    <button class="element_exam_submit" onclick="element_exam_showResult(0)">Submit</button>
-                </div>
+                <button class="element_exam_submit" onclick="element_exam_showResult(0)">Submit</button>
+                <button class="element_exam_reset" onclick="element_exam_reset(0)">⟳</button>
+            </div>
                   
         </div>
     </div>
