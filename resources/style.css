@@ -189,9 +189,8 @@ html {
             box-shadow: var(--current_boxshadow);
             border-radius: 0.5rem;
             background-color: var(--current_p_background);
-            
         }
-
+        
         #content ul li a {
             color: inherit;
             text-decoration: none;
@@ -201,7 +200,6 @@ html {
             color: #487DE0;
             font-weight: bold;
         }
-
         #kontakt{
             display: block;
             margin: auto;
@@ -214,7 +212,6 @@ html {
             border: none;
             box-shadow: var(--current_boxshadow);
             border-radius: 0.5rem;
-            
         }
         #absenden{
             display: block;
@@ -229,6 +226,23 @@ html {
             border-radius: 0.5rem;
             font-size: 150%;
             cursor: pointer;
+        }
+        #tabelleleiterwiderstand{
+            width: 100%;
+            margin: auto;
+            padding: 0.5rem;
+            font-size: 80%;
+            text-align: center;
+            color: var(--current_color);
+            background-color: var(--current_p_background);
+            box-shadow: var(--current_boxshadow);
+            border-radius: 0.5rem; 
+        }
+        #tabelleleiterwiderstand td{
+            border: 1px solid var(--current_color);
+        }
+        #tabelleleiterwiderstand th{
+            border: 1px solid var(--current_color);
         }
 
     #footer {
