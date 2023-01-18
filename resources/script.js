@@ -122,7 +122,7 @@ function element_slideviewer_showSlide(source="", show_slide="") {
 }
 
 /* Exercises */
-function element_exam_showResult(examIndex = 0){
+function element_exam_showResult(examIndex){
     var doReturn = [];
     var doNotReturn = [];
     for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){
@@ -136,26 +136,36 @@ function element_exam_showResult(examIndex = 0){
     }
     for(var i = 0; i<doNotReturn.length; i++){
         console.log(doNotReturn)
-        document.getElementsByClassName(doNotReturn[i])[0].style.border = "inherit";
+        document.getElementsByClassName(doNotReturn[i])[0].style.border = null;
     }
     for(var i = 0; i < doReturn.length; i++){
         if(!doNotReturn.includes(doReturn[i])){
             return;
         }
     }
-    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // Add color
+    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // ✓ / ✘
         console.warn(document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isAwnser)
         if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 1){
-            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span style='color:lime; font-weight:bold'>\ ✓<span>";
-            console.log("x")
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span class='element_checkCross' style='color:lime; font-weight:bold'>\ ✓<span>";
 
         }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0 && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor){
-            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a href='"+ document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor +"' style='text-decoration:none; color:red; font-weight:bold'>\ ✘ <span style='color:var(--current_color); font-weight:bold'>ⓘ</span></a>";
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a class='element_checkCross' href='"+ document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor +"' style='text-decoration:none; color:red; font-weight:bold'>\ ✘ <span style='color:var(--current_color); font-weight:bold'>ⓘ</span></a>";
         }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0 && !document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor){
-            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span style='text-decoration:none; color:red; font-weight:bold'>\ ✘</span>";
+            document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span class='element_checkCross' style='text-decoration:none; color:red; font-weight:bold'>\ ✘</span>";
         }
     }
     document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = "grey";
     document.querySelectorAll(".element_exam_submit")[examIndex].style.border = "grey";
     document.querySelectorAll(".element_exam_submit")[examIndex].setAttribute("onclick", "");
+    document.querySelectorAll(".element_exam_reset")[examIndex].style.color = "var(--current_color)";
+}
+function element_exam_reset(examIndex){
+    document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = null;
+    document.querySelectorAll(".element_exam_submit")[examIndex].style.border = null;
+    document.querySelectorAll(".element_exam_submit")[examIndex].setAttribute("onclick", "element_exam_showResult("+examIndex+")");
+    document.querySelectorAll(".element_exam_reset")[examIndex].style.color = "grey";
+    var checksCrosses = document.querySelectorAll(".element_exam")[examIndex].querySelectorAll(".element_checkCross");
+    for(var i = 0; i < checksCrosses.length; i++){
+        checksCrosses[i].parentNode.removeChild(checksCrosses[i]);
+    }
 }
