@@ -1,0 +1,118 @@
+<!-- mathe-matrizen.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Freier Fall - Grundlagen die jeder wissen sollte</title>
+    <meta property="og:title" content="Freier Fall - Grundlagen die jeder wissen sollte">
+    <meta name ="description" content ="Hier finden Sie alles, was Sie über dan Freien Fall wissen müssen.">
+    <meta property="og:description" content="Hier finden Sie alles, was Sie über dan Freien Fall wissen müssen.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="../resources/TT.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Freier Fall, Physik, simpel, Erklärung, einfach, Lösung, Hilfe, Wie">
+    <link rel="stylesheet" href="../resources/style.css">
+    <link rel="icon" href="../resources/favicon.ico">
+    <script src="../resources/script.js" defer></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>$(function(){$("#navbar").load("../templates/navbar.html");});</script>
+    <script>$(function(){$("#footer").load("../templates/footer.html");});</script>
+</head>
+
+<body>
+    <nav id="navbar"></nav>
+    
+    <div id="content_container">
+        
+        <div id="content">
+            <h1>Freier Fall</h1>
+            <h2>Simpel erklärt</h2>
+
+            <h4>Inhaltsverzeichnis</h4>
+            <hr>
+            <ul>
+                <li>
+                <a href="#anchorfreierfall1">Definition</a>
+                </li>
+                <li>
+                    <a href="#anchorfreierfall2">Formel</a>
+                </li>
+                <li>
+                    <a href="#anchorfreierfall3">Beispiel</a>
+                </li>
+                <li>
+                    <a href="#anchorfreierfall4">Übungen</a>
+                </li>
+            </ul>
+
+            <h4 id="anchorfreierfall1">Definition</h4>
+            <hr>
+            <p>
+                Unter dem freien Fall verstehst du in der Physik, wenn ein Körper in Richtung des Erdmittelpunkts fällt.<br>
+                Seine Fallbewegung ist dabei geradlinig und gleichmäßig beschleunigt.<br>
+                Auf einen Körper im freien Fall wirken keine Kräfte, bis auf die Gewichtskraft.
+                Die Gewichtskraft bewirkt eine Beschleunigung, die überall auf der Erde gleich groß ist: \(9,81\frac{m}{s²}\).
+            </p>
+
+            <h4 id="anchorfreierfall2">Formel</h4>
+            <hr>
+            <p>
+                <b>Fallbeschleunigung</b><br>
+                Für die zurückgelegte Strecke bei einer gleichmäßigen Beschleunigung gilt:<br>
+                <br>
+                \(s=\frac{1}{2}*g*t²\)<br>
+                Für die Geschwindigkeit gilt beim freien Fall:<br>
+                <br>
+                \(v=g*t\)<br>
+            </p>
+            <p>
+                s = Strecke<br>
+                g = konstanten Beschleunigung (Corioliskraft)<br>
+                t = Zeit<br>
+                v = Geschwindigkeit<br>
+            </p>
+            
+            <h4 id="anchorfreierfall3">Beispiel</h4>
+            <hr>
+            <p>
+                Welche Strecke legt ein Stein zurück, der nach 1,5s auf dem Boden aufprallt?<br>
+                <br>
+                \(s=\frac{1}{2}*g*t²\)<br>
+                \(s=\frac{1}{2}*9,81\frac{m}{s²}*t²=11m\)<br>
+                <br>
+                Welche Geschwindigkeit hat ein Stein, wenn er 2s fällt?<br>
+                \(v=g*t\)<br>
+                \(v=9,81*2=19,62\frac{km}{h}\)<br>
+            </p>
+
+            <h4 id="anchorfreierfall4">Übung</h4>
+            <hr>
+                <div class="element_exam">
+                    <p class="frage1">Welche Strecke legt ein Stift zurück, der nach 0,5s auf dem Boden aufprallt?<br></p>
+                    <input type="radio" name="frage1" data-anchor="#anchorfreierfall2" data-isawnser="0"><span>1,6m</span><br>
+                    <input type="radio" name="frage1" data-anchor="#anchorfreierfall2" data-isawnser="0"><span>2m</span><br>
+                    <input type="radio" name="frage1" data-anchor="#anchorfreierfall2" data-isawnser="1"><span>1,2m</span><br>
+                    <br>  
+                  
+                    <p class="frage2">Welche Geschwindigkeit hat ein Stift, wenn er 1s fällt?</p>
+                    <input type="radio" name="frage2" data-anchor="#anchorfreierfall2" data-isawnser="1"><span>9,8\(\frac{km}{h}\)</span><br>
+                    <input type="radio" name="frage2" data-anchor="#anchorfreierfall2" data-isawnser="0"><span>9,62\(\frac{km}{h}\)</span><br>  
+                    <input type="radio" name="frage2" data-anchor="#anchorfreierfall2" data-isawnser="0"><span>11\(\frac{km}{h}\)</span><br>
+                    <br>
+
+                    <button class="element_exam_submit" onclick="element_exam_showResult(0)">Submit</button>
+                    <button class="element_exam_reset" onclick="element_exam_reset(0)">⟳</button>
+                </div>             
+        </div>
+    </div>
+    
+    
+    <footer id="footer"></footer>
+    
+</body>
+</html>
