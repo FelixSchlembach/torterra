@@ -28,20 +28,20 @@
     <div id="content_container">
         
         <div id="content">
-            <h1 id="h1_animated">Impressum</h1>
+            <h1 class="h1_animated">Impressum</h1>
             <h2>Team Torterra</h2>
             <hr>
             <br>
             <form action="https://formspree.io/f/mayznjap" method="POST">
-                <input name="Vormane" id="kontakt" type="text" placeholder="Vorname"></input>
-                <input name="Nachname" id="kontakt" type="text" placeholder="Nachname"></input>
-                <input name="Email" id="kontakt" type="email" placeholder="Email" required></input>
-                <textarea name="Nachricht" id="kontakt" rows="8" cols="" placeholder="Nachricht" required></textarea>
-                <b><input id="absenden" type="submit" value="Senden 🚀"></input></b>
+                <input name="Vormane" class="kontakt" type="text" placeholder="Vorname">
+                <input name="Nachname" class="kontakt" type="text" placeholder="Nachname">
+                <input name="Email" class="kontakt" type="email" placeholder="Email" required>
+                <textarea name="Nachricht" class="kontakt" rows="8" placeholder="Nachricht" required></textarea>
+                <input id="absenden" type="submit" value="Senden 🚀">
             </form>
             <br>
             <br>
-            <h1 id="h1_animated">WEB Projekt</h1>
+            <h1 class="h1_animated">WEB Projekt</h1>
             <h2> Team Torterra WS 2022/23</h2>
             <hr>
             <br>
@@ -59,7 +59,7 @@
             
             <div id="donate-button-container">
                 <div id="donate-button"></div>
-                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"></script>
                 <script>
                 PayPal.Donation.Button({
                 env:'production',

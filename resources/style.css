@@ -152,7 +152,7 @@ html {
             line-height: 3rem;
             border-radius: 0.5rem;
         }
-        #h1_animated {
+        .h1_animated {
             background-size: 200%;
             animation: wiggle 7s ease-in-out infinite;
         }
@@ -247,7 +247,7 @@ html {
         width: 100%;
         max-width: 30rem;
     }
-    #kontakt{
+    .kontakt{
         display: block;
         margin: auto;
         padding: 0.5rem;
