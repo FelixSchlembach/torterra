@@ -8,14 +8,14 @@ if(localStorage.darkMode == null) {
 /* Set theme of last page visit / after refresh */
 function checkDarkMode() {
     var root = document.querySelector(":root");
-    if(localStorage.darkMode == "darkmode"){ // If current theme == darkmode --> lightmode
+    if(localStorage.darkMode == "darkmode"){ // If current theme == darkmode --> darkmode
         root.style.setProperty("--current_button_content", "var(--darkmode_button_content");
         root.style.setProperty("--current_background", "var(--darkmode_background)");
         root.style.setProperty("--current_color", "var(--darkmode_color)");
         root.style.setProperty("--current_boxshadow", "var(--darkmode_boxshadow)");
         root.style.setProperty("--current_p_background", "var(--darkmode_p_background)");
 
-    }else{   // Else: darkmode
+    }else{   // Else: lightmode
         root.style.setProperty("--current_button_content", "var(--lightmode_button_content");
         root.style.setProperty("--current_background", "var(--lightmode_background)");
         root.style.setProperty("--current_color", "var(--lightmode_color)");
@@ -84,7 +84,7 @@ function element_slideviewer_innit() {
         document.querySelectorAll(".element_slideviewer")[i].children[0].style.display = "block";   // Show first slide
         
         document.querySelectorAll(".element_slideviewer")[i].innerHTML += "<div class='element_slideviewer_dots' style='display: block !important;'></div>";    // Add dots-container
-        for (var j = 0; j < totalSlides; j++){
+        for(var j = 0; j < totalSlides; j++){
             document.querySelectorAll(".element_slideviewer_dots")[i].innerHTML += "<a onclick='element_slideviewer_showSlide("+i+", "+(j)+")'>•</a>";  // Add as many dots as slides
         }
         document.querySelectorAll(".element_slideviewer_dots")[i].children[0].classList.add("element_slideviewer_dots_active"); // Color first dot-button
