@@ -26,16 +26,16 @@
 html {
     font-size: 1.1rem;
     position: relative;
-    height: 100%;
     font-family: 'Segoe UI', sans-serif;
+    height: 100%;
 }
     body {
         margin: 0;
-        height: 100%;
         display: grid;
         grid-template-rows: auto min-content;
         background-color: var(--current_background);
         color: var(--current_color);
+        height: 100%;
     }
     
         #navbar { /* navbar */
@@ -54,9 +54,13 @@ html {
                 padding-right: 0.2rem;
                 height: 3rem;
             }
-
+            #logo2_container {
+                display: flex;
+                justify-content: center;
+            }
             #logo2{
                 width: 100%;
+                max-width: 30rem;
             }
 
                 .topic_button {    /* "Mathe" und "Physik" buttons */
@@ -69,6 +73,7 @@ html {
                     cursor: pointer;
                     user-select: none;
                     font-size: 1.2rem;
+                    
                 }
                 .topic_button:hover{
                     background: rgb(37, 37, 43) !important;
@@ -124,6 +129,7 @@ html {
             margin-right: 0;
             padding-right: 1rem;
             height: 100%;
+            border-radius: 1rem;
         }
         #dark_mode_button::after {
             content: var(--current_button_content);
@@ -149,7 +155,7 @@ html {
             line-height: 3rem;
             border-radius: 0.5rem;
         }
-        #homepage_h1 {
+        #h1_animated {
             background-size: 200%;
             animation: wiggle 7s ease-in-out infinite;
         }
@@ -230,6 +236,21 @@ html {
             font-size: 150%;
             cursor: pointer;
         }
+        #Impressum_Daten {
+            text-align: center;
+            width: 100%;
+            box-shadow: var(--current_boxshadow);
+            border-radius: 0.5rem;
+            background-color: var(--current_p_background);
+            height: 4rem;
+        }
+        #email_text_center{
+            text-align: center;
+        }
+        #donate-button {
+            margin: auto;
+            width: 12rem;
+        }
 
     #footer {
         background-color: rgb(41, 41, 47);
@@ -254,9 +275,10 @@ html {
             text-align: center;
         }
 
-    .matrix{
+    .matrix_vec_h_scroll{
         overflow-x: auto;
         white-space: nowrap;
+        max-width: calc(100vw - 5rem);
     }
 
 
@@ -320,6 +342,11 @@ html {
     }
     .element_slideviewer_arrowbutton_left:hover, .element_slideviewer_arrowbutton_right:hover {
         color: #487DE0;
+    }
+    .element_slideviewer_table{
+        width: 100%; 
+        text-align: center; 
+        padding-bottom: 2rem;
     }
 
     /* Slideviewer monty-prob 1 */

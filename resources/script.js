@@ -1,28 +1,31 @@
 /*-- script.js --*/
 
+/* Create variable if first page visit */
 if(localStorage.darkMode == null) {
     localStorage.darkMode = "lightmode";
 }
 //console.log(document.cookie);
 checkDarkMode();
 
+/* Navbar-Dropdown-Logic */
 function clickDropDownButton(source=""){
     var topics_dictionary = {"close_all": -1 ,"mathe": 0, "physik": 1};
-    for(var i=0; i<2; i++){
+    for(var i=0; i<2; i++){ // Close all topics
         if(topics_dictionary[source] != i || topics_dictionary[source] == -1 || document.getElementsByClassName("dropdown")[topics_dictionary[source]].style.display == "block"){
             document.getElementsByClassName("dropdown")[i].style.display = "none";
             document.getElementsByClassName("topic_button")[i].style.backgroundColor = "transparent";
             
-        }else{
+        }else{  // Open clicked topic
             document.getElementsByClassName("dropdown")[i].style.display = "block";
             document.getElementsByClassName("topic_button")[i].style.backgroundColor = "#25252B";
         }
     }
 }
 
+/* Darkmode-Button-Onclick-Event */
 function darkMode(){
     var root = document.querySelector(":root");
-    if(localStorage.darkMode == "darkmode"){
+    if(localStorage.darkMode == "darkmode"){    // If current theme == darkmode --> lightmode
         root.style.setProperty("--current_button_content", "var(--lightmode_button_content");
         root.style.setProperty("--current_background", "var(--lightmode_background)");
         root.style.setProperty("--current_color", "var(--lightmode_color)");
@@ -30,7 +33,7 @@ function darkMode(){
         root.style.setProperty("--current_p_background", "var(--lightmode_p_background)");
         localStorage.darkMode = "lightmode";
 
-    }else{
+    }else{  // Else: darkmode
         root.style.setProperty("--current_button_content", "var(--darkmode_button_content");
         root.style.setProperty("--current_background", "var(--darkmode_background)");
         root.style.setProperty("--current_color", "var(--darkmode_color)");
@@ -40,18 +43,17 @@ function darkMode(){
     }
 }
 
-
-// Set theme of last page visit / after refresh
+/* Set theme of last page visit / after refresh */
 function checkDarkMode() {
     var root = document.querySelector(":root");
-    if(localStorage.darkMode == "darkmode"){
+    if(localStorage.darkMode == "darkmode"){ // If current theme == darkmode --> lightmode
         root.style.setProperty("--current_button_content", "var(--darkmode_button_content");
         root.style.setProperty("--current_background", "var(--darkmode_background)");
         root.style.setProperty("--current_color", "var(--darkmode_color)");
         root.style.setProperty("--current_boxshadow", "var(--darkmode_boxshadow)");
         root.style.setProperty("--current_p_background", "var(--darkmode_p_background)");
 
-    }else{
+    }else{   // Else: darkmode
         root.style.setProperty("--current_button_content", "var(--lightmode_button_content");
         root.style.setProperty("--current_background", "var(--lightmode_background)");
         root.style.setProperty("--current_color", "var(--lightmode_color)");
@@ -60,7 +62,7 @@ function checkDarkMode() {
     }
 }
 
-
+/* -- element_slideviewer -- */
 /*
     Sender is saved in the button onclick-function, and since the buttons are generated programmatically onclick-function-parameter is set dynamically.
     This is true for the arrow-buttons, as well as for the dot-buttons. Both carry their slideviewerID as a parameter.
@@ -121,10 +123,10 @@ function element_slideviewer_showSlide(source="", show_slide="") {
     document.querySelectorAll(".element_slideviewer_dots")[source].children[show_slide].classList.add("element_slideviewer_dots_active");       // Set new dot to active   (add the active class)
 }
 
-/* Exercises */
+/* -- element_exam -- */
 function element_exam_showResult(examIndex){
-    var doReturn = [];
-    var doNotReturn = [];
+    var doReturn = [];      // Radio not checked
+    var doNotReturn = [];   // Radio checked; This overrides doReturn for given name
     for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){
         if(!document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio"){
             doReturn.push(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"));
@@ -154,12 +156,16 @@ function element_exam_showResult(examIndex){
             document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span class='element_checkCross' style='text-decoration:none; color:red; font-weight:bold'>\ ✘</span>";
         }
     }
+    /* Turn button grey, inactive */
+    document.querySelectorAll(".element_exam_submit")[examIndex].classList.add("element_exam_submit_inactive");
     document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = "grey";
     document.querySelectorAll(".element_exam_submit")[examIndex].style.border = "grey";
     document.querySelectorAll(".element_exam_submit")[examIndex].setAttribute("onclick", "");
     document.querySelectorAll(".element_exam_reset")[examIndex].style.color = "var(--current_color)";
 }
 function element_exam_reset(examIndex){
+    /* Turn button green, active */
+    document.querySelectorAll(".element_exam_submit")[examIndex].classList.remove("element_exam_submit_inactive");
     document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = null;
     document.querySelectorAll(".element_exam_submit")[examIndex].style.border = null;
     document.querySelectorAll(".element_exam_submit")[examIndex].setAttribute("onclick", "element_exam_showResult("+examIndex+")");

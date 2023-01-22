@@ -1,0 +1,244 @@
+<!-- mathe-matrizen.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Vektoren - Grundlagen die jeder wissen sollte</title>
+    <meta property="og:title" content="Vektoren - Grundlagen die jeder wissen sollte">
+    <meta name ="description" content ="Egal ob du suchst wie man Vektoren addiert oder multipliziert, hier findest du alles Grundlegende zu Vektoren und Vektoren-Rechnung simpel erklärt!">
+    <meta property="og:description" content="Egal ob du suchst wie man Vektoren addiert oder multipliziert, hier findest du alles Grundlegende zu Vektoren und Vektoren-Rechnung simpel erklärt!">
+
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="../resources/TT.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mathe, Physik, simpel, Erklärung, einfach, Lösung, Hilfe, Wie">
+    <link rel="stylesheet" href="../resources/style.css">
+    <link rel="icon" href="../resources/favicon.ico">
+    <script src="../resources/script.js" defer></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>$(function(){$("#navbar").load("../templates/navbar.html");});</script>
+    <script>$(function(){$("#footer").load("../templates/footer.html");});</script>
+</head>
+
+<body>
+    <nav id="navbar"></nav>
+    
+    <div id="content_container">
+        
+        <div id="content">
+            <h1>Vektoren</h1>
+            <h2>Simpel erklärt</h2>
+
+            <h4>Inhaltsverzeichnis</h4>
+            <hr>
+            <ul>
+                <li>
+                <a href="#Aufbau_Von_Vektoren">Aufbau von Vektoren</a>
+                </li>
+                <li>
+                    <a href="#Arten_von_Vektoren">Arten von Vektoren</a>
+                </li>
+                <li>
+                    <a href="#Rechnen_mit_Vektoren">Rechnen mit Vektoren</a>
+                </li>
+                <li>
+                    <a href="#Vektorlänge">Länge eines Vektors</a>
+                </li>
+                <li>
+                    <a href="#Skalarprodukt">Skalarprodukt</a>
+                </li>
+                <li>
+                    <a href="#Übungen">Übungen</a>
+                </li>
+            </ul>
+
+            <h4 id="Aufbau_Von_Vektoren">Aufbau von Vektoren</h4>
+            <hr>
+            <p>
+                Ein Vektor \(\vec v\) den einen Weg von einem bestimmten Punkt aus zu einer Koordinate bzw. die Verbindung von Punkt zu Punkt.
+            </p>
+            <p>
+                Im 2D gibt es zwei Werte geschrieben als:
+            </p> 
+            \( \vec v=\begin{pmatrix} x\\y \end{pmatrix}\)
+            <p>
+                In 3D gibt es drei Werte geschrieben als:
+            </p>
+            \(\vec v=\begin{pmatrix} x\\y\\z \end{pmatrix}\)
+
+
+            <h4 id="Arten_von_Vektoren">Arten von Vektoren</h4>
+            <hr>
+            <p>
+                Man unterscheidet zwischen dem <b>Ortsvektor</b> und dem <b>Richtungsvektor</b>
+            </p>
+            <p id="Ortsvektor"><b>Ortsvektor</b><br>
+                Der Ortsvektor \( \overrightarrow{OA}\) beschreibt eine Strecke ausgehend vom Nullpunkt \(O\) zum Punkt \(A\).
+            </p>
+            \(\ \overrightarrow{OA}=\begin{pmatrix} 1\\2\\3 \end{pmatrix}\)
+            <p>
+                Um den Ortsvektor zu bilden braucht man nur die Koordinaten eines Punktes
+            </p>
+                \(  A=(1,2,3) \Rightarrow \overrightarrow{OA}=\begin{pmatrix} 1\\2\\3 \end{pmatrix}\)
+            <p id="Richtungsvektor"><b>Richtungsvektor</b><br>
+
+            Der Richtungsvektor \( \overrightarrow{AB}\) beschreibt die Strecke ausgehend von Punkt \(A\) zu Punkt \(B\).
+            </p>
+            \(  A = (1,2,3)\) \(B = (4,5,6)\)
+            <p>
+                Um den Richtungsvektor von \(A\) zu \(B\) zu errechnen, rechnet man \(\vec B-\vec A\).
+            </p>
+            \(  \overrightarrow{A}=\begin{pmatrix} 1\\2\\3 \end{pmatrix}\) \(\overrightarrow{B}=\begin{pmatrix} 4\\5\\6 \end{pmatrix}\) <br>
+            \(\overrightarrow{AB} = \vec B-\vec A\) <br> <br>
+            \(\overrightarrow{AB} = \begin{pmatrix} 4-1\\5-2\\6-3 \end{pmatrix} = \begin{pmatrix} 3\\3\\3 \end{pmatrix} \)
+
+            <h4 id="Rechnen_mit_Vektoren">Rechnen mit Vektoren</h4>
+            <hr>
+            <p>
+                <b>Addition</b>
+                <br>
+                <br>
+                Es können nur Vektoren gleicher Größe addiert werden.<br>
+                \(\vec a+ \vec b= \vec c\)
+            </p>
+            <br>
+            <div class="matrix_vec_h_scroll">
+                \(\begin{pmatrix}
+                1 \\
+                2 \\
+                3
+                \end{pmatrix} 
+                + 
+                \begin{pmatrix}
+                4 \\
+                5 \\
+                6 
+                \end{pmatrix}=\begin{pmatrix}
+                5 \\
+                7 \\
+                9
+                \end{pmatrix} \)
+            </div>
+            <br>
+
+            <p>
+                <b>Subtraktion</b>
+                <br>
+                <br>
+                Es können nur Vektoren gleicher Größe subtrahiert werden.<br>
+                \(\vec a- \vec b= \vec c\)
+            </p>
+            <br>
+            <div class="matrix_vec_h_scroll">
+                \(\begin{pmatrix}
+                1 \\
+                2 \\
+                3
+                \end{pmatrix} 
+                - 
+                \begin{pmatrix}
+                4 \\
+                5 \\
+                6 
+                \end{pmatrix}=\begin{pmatrix}
+                -3 \\
+                -3 \\
+                -3
+                \end{pmatrix} \)
+            </div>
+            <br>
+
+            <p>
+                <b>Multiplikation</b>
+                <br>
+                <br>
+                Ein Vektor mit einem Wert (einem Skalar) multipliziert werden. Skalar, weil man mit dem Wert eine Skalierung vornimmt.<br>
+                Damit ändert man die Länge des Vektors. <br>
+                \(\vec v * x= \vec b\)
+            </p>
+            <br>
+            <div class="matrix_vec_h_scroll">
+                \(\begin{pmatrix}
+                1 \\
+                2 \\
+                3
+                \end{pmatrix} 
+                *
+                2
+                =
+                \begin{pmatrix}
+                2 \\
+                4 \\
+                6
+                \end{pmatrix} \)
+            </div>
+            <p>Hier verdoppet sich die länge des Vektors.</p>
+            <br>
+
+            <h4 id="Vektorlänge">Länge eines Vektors</h4>
+            <hr>
+            <p>
+                Die Länge eines Vectors lässt mit der Formel<br>
+                \(\sqrt{x^2+y^2+z^2} \)<br>
+                berechnen. Das Ergebniss nennt man einen Skalar.
+            </p>
+
+            <h4 id="Skalarprodukt">Skalarprodukt</h4>
+            <hr>
+            <p>
+                Man bildet das Skalarprodukt von zwei Vektoren wie folgt: <br>
+
+                \(\vec a \cdot \vec b  = s \) <br>
+                </p>
+                <div class="matrix_vec_h_scroll">
+                    \(\begin{pmatrix}
+                    1 \\
+                    2 \\
+                    3
+                    \end{pmatrix} 
+                    \cdot
+                    \begin{pmatrix}
+                    4 \\
+                    5 \\
+                    6
+                    \end{pmatrix}\) <br><br>
+
+                    \(=1*4+2*5+3*6 = 32\)
+                    <br><br>
+                </div>
+            
+            <h4 id="Übungen">Übungen</h4>
+            <hr>
+            <div class="element_exam">
+                <p class="frage1">Der Vektor, welcher dem Weg von \(B\) zu \(C\) beschreibt, heißt:</p>
+                <input type="radio" name="frage1" data-anchor="#Richtungsvektor" data-isawnser="0"><span>\(\overrightarrow {CB}\)</span><br>
+                <input type="radio" name="frage1" data-anchor="#Richtungsvektor" data-isawnser="1"><span>\(\overrightarrow {BC}\)</span><br>
+                <input type="radio" name="frage1" data-anchor="#Richtungsvektor" data-isawnser="0"><span>\(\overrightarrow {D}\)</span><br>
+                <br>  
+                
+                <p class="frage2">Der Ortsvektor \(\overrightarrow {OA}\) beschreibt die Strecke vom Punkt \(A\) zum Nullpunkt \(O\)</p>
+                <input type="radio" name="frage2" data-anchor="#Ortsvektor" data-isawnser="0"><span>Ja</span><br>
+                <input type="radio" name="frage2" data-anchor="#Ortsvektor" data-isawnser="1"><span>Nein</span><br>  
+                <br>
+
+                <p class="frage3">Der Richtungsvektor \(\overrightarrow {PQ}\) beschreibt die Strecke vom Punkt \(Q\) zu Punkt \(P\)</p>
+                <input type="radio" name="frage3" data-anchor="#Richtungsvektor" data-isawnser="0"><span>Ja</span><br>
+                <input type="radio" name="frage3" data-anchor="#Richtungsvektor" data-isawnser="1"><span>Nein</span><br>  
+                <br>
+
+                <button class="element_exam_submit" onclick="element_exam_showResult(0)">Submit</button>
+                <button class="element_exam_reset" onclick="element_exam_reset(0)">⟳</button>
+            </div>
+                  
+        </div>
+    </div>
+    
+    
+    <footer id="footer"></footer>
+    
+</body>
+</html>

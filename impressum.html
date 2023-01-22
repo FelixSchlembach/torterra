@@ -29,8 +29,8 @@
     <div id="content_container">
         
         <div id="content">
-            <h1 id="mandp">Impressum</h1>
-            <h2 id="mandp_under">Team Torterra</h2>
+            <h1 id="h1_animated">Impressum</h1>
+            <h2>Team Torterra</h2>
             <hr>
             <br>
             <form action="https://formspree.io/f/mayznjap" method="POST">
@@ -40,7 +40,44 @@
                 <textarea name="Nachricht" id="kontakt" rows="8" cols="" placeholder="Nachricht" required></textarea>
                 <b><input id="absenden" type="submit"></input></b>
             </form>
-            <img id="logo2" src="./resources/TorTerra.png">
+            <br>
+            <br>
+            <h1 id="h1_animated">WEB Projekt</h1>
+            <h2> Team Torterra WS 2022/23</h2>
+            <hr>
+            <br>
+            <table id="Impressum_Daten">
+                <tr>
+                    <td>
+                        <b><i>Eric Demuth</i></b>
+                    </td>
+                    <td>
+                        <b><i>Felix Schlembach</i></b>
+                    </td>
+                </tr>
+            </table>
+            <p id="email_text_center"><b>E-Mail</b><br> <i>torterra2023@gmail.com</i></p>
+            
+            <div id="donate-button-container">
+                <div id="donate-button"></div>
+                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                <script>
+                PayPal.Donation.Button({
+                env:'production',
+                hosted_button_id:'S984AJ5WJYAU8',
+                image: {
+                src:'https://pics.paypal.com/00/s/MzkyMmJkOWQtYjQ5OC00MTZiLTlhMmItYjJlYjZlZWY3ZWJk/file.PNG',
+                alt:'Spenden mit dem PayPal-Button',
+                title:'PayPal - The safer, easier way to pay online!',
+                }
+                }).render('#donate-button');
+                </script>
+            </div>
+                
+            
+            <div id="logo2_container">
+                <img id="logo2" src="./resources/TorTerra.png" alt="Team TorTerra Logo">
+            </div>
         </div>
 
     </div>
