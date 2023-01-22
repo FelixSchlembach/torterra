@@ -1,46 +1,8 @@
 /*-- script.js --*/
 
-/* Create variable if first page visit */
+/* Create variable on first page visit */
 if(localStorage.darkMode == null) {
     localStorage.darkMode = "lightmode";
-}
-//console.log(document.cookie);
-checkDarkMode();
-
-/* Navbar-Dropdown-Logic */
-function clickDropDownButton(source=""){
-    var topics_dictionary = {"close_all": -1 ,"mathe": 0, "physik": 1};
-    for(var i=0; i<2; i++){ // Close all topics
-        if(topics_dictionary[source] != i || topics_dictionary[source] == -1 || document.getElementsByClassName("dropdown")[topics_dictionary[source]].style.display == "block"){
-            document.getElementsByClassName("dropdown")[i].style.display = "none";
-            document.getElementsByClassName("topic_button")[i].style.backgroundColor = "transparent";
-            
-        }else{  // Open clicked topic
-            document.getElementsByClassName("dropdown")[i].style.display = "block";
-            document.getElementsByClassName("topic_button")[i].style.backgroundColor = "#25252B";
-        }
-    }
-}
-
-/* Darkmode-Button-Onclick-Event */
-function darkMode(){
-    var root = document.querySelector(":root");
-    if(localStorage.darkMode == "darkmode"){    // If current theme == darkmode --> lightmode
-        root.style.setProperty("--current_button_content", "var(--lightmode_button_content");
-        root.style.setProperty("--current_background", "var(--lightmode_background)");
-        root.style.setProperty("--current_color", "var(--lightmode_color)");
-        root.style.setProperty("--current_boxshadow", "var(--lightmode_boxshadow)");
-        root.style.setProperty("--current_p_background", "var(--lightmode_p_background)");
-        localStorage.darkMode = "lightmode";
-
-    }else{  // Else: darkmode
-        root.style.setProperty("--current_button_content", "var(--darkmode_button_content");
-        root.style.setProperty("--current_background", "var(--darkmode_background)");
-        root.style.setProperty("--current_color", "var(--darkmode_color)");
-        root.style.setProperty("--current_boxshadow", "var(--darkmode_boxshadow)");
-        root.style.setProperty("--current_p_background", "var(--darkmode_p_background)");
-        localStorage.darkMode = "darkmode";
-    }
 }
 
 /* Set theme of last page visit / after refresh */
@@ -59,6 +21,44 @@ function checkDarkMode() {
         root.style.setProperty("--current_color", "var(--lightmode_color)");
         root.style.setProperty("--current_boxshadow", "var(--lightmode_boxshadow)");
         root.style.setProperty("--current_p_background", "var(--lightmode_p_background)");
+    }
+}
+/* Darkmode-Button-Onclick-Event */
+function darkMode(){    // lightmode --> darkmode; darkmode --> lightmode
+    var root = document.querySelector(":root");
+    if(localStorage.darkMode == "darkmode"){    // If current theme == darkmode --> lightmode
+        root.style.setProperty("--current_button_content", "var(--lightmode_button_content");
+        root.style.setProperty("--current_background", "var(--lightmode_background)");
+        root.style.setProperty("--current_color", "var(--lightmode_color)");
+        root.style.setProperty("--current_boxshadow", "var(--lightmode_boxshadow)");
+        root.style.setProperty("--current_p_background", "var(--lightmode_p_background)");
+        localStorage.darkMode = "lightmode";
+
+    }else{  // Else: darkmode
+        root.style.setProperty("--current_button_content", "var(--darkmode_button_content");
+        root.style.setProperty("--current_background", "var(--darkmode_background)");
+        root.style.setProperty("--current_color", "var(--darkmode_color)");
+        root.style.setProperty("--current_boxshadow", "var(--darkmode_boxshadow)");
+        root.style.setProperty("--current_p_background", "var(--darkmode_p_background)");
+        localStorage.darkMode = "darkmode";
+    }
+}
+/* Check which mode was last used  */
+checkDarkMode();
+
+
+/* Navbar-Dropdown-Logic */
+function clickDropDownButton(source=""){
+    var topics_dictionary = {"close_all": -1 ,"mathe": 0, "physik": 1};
+    for(var i=0; i<2; i++){ // Close all topics
+        if(topics_dictionary[source] != i || topics_dictionary[source] == -1 || document.getElementsByClassName("dropdown")[topics_dictionary[source]].style.display == "block"){
+            document.getElementsByClassName("dropdown")[i].style.display = "none";
+            document.getElementsByClassName("topic_button")[i].style.backgroundColor = "transparent";
+            
+        }else{  // Open clicked topic
+            document.getElementsByClassName("dropdown")[i].style.display = "block";
+            document.getElementsByClassName("topic_button")[i].style.backgroundColor = "#25252B";
+        }
     }
 }
 
@@ -124,10 +124,11 @@ function element_slideviewer_showSlide(source="", show_slide="") {
 }
 
 /* -- element_exam -- */
+/* Mark questions orange if awnser is missing */
 function element_exam_showResult(examIndex){
-    var doReturn = [];      // Radio not checked
-    var doNotReturn = [];   // Radio checked; This overrides doReturn for given name
-    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){
+    var doReturn = [];      // Radio not checked --> orange border due to missing awnser
+    var doNotReturn = [];   // Radio checked; This overrides doReturn for given name --> remove orange border from that element because check was found
+    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // Check all radio buttons
         if(!document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio"){
             doReturn.push(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"));
             document.getElementsByClassName(document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("name"))[0].style.border = "orange 2px solid";
@@ -137,39 +138,41 @@ function element_exam_showResult(examIndex){
         }
     }
     for(var i = 0; i<doNotReturn.length; i++){
-        console.log(doNotReturn)
         document.getElementsByClassName(doNotReturn[i])[0].style.border = null;
     }
     for(var i = 0; i < doReturn.length; i++){
-        if(!doNotReturn.includes(doReturn[i])){
+        if(!doNotReturn.includes(doReturn[i])){ // Stop here if not every question was awnsered
             return;
         }
     }
-    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // ✓ / ✘
-        console.warn(document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isAwnser)
+    element_exam_checkAwnsers(examIndex);
+}
+/* Awnser correct / wrong logic */
+function element_exam_checkAwnsers(examIndex){
+    for(var i = 0; i < document.querySelectorAll(".element_exam")[examIndex].children.length; i++){ // Check if checked radio button was the correct one and mark with "✓" / "✘" or "✘ ⓘ" if there is an anchor specified
+        /* Awnser correct --> add checkmark "✓" */
         if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 1){
             document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span class='element_checkCross' style='color:lime; font-weight:bold'>\ ✓<span>";
-
+        
+        /* Awnser wrong --> add cross "✘" */
         }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0 && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor){
             document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<a class='element_checkCross' href='"+ document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor +"' style='text-decoration:none; color:red; font-weight:bold'>\ ✘ <span style='color:var(--current_color); font-weight:bold'>ⓘ</span></a>";
+        /* Awnser wrong --> add cross "✘ ⓘ" as link to an anchor*/
         }else if(document.querySelectorAll(".element_exam")[examIndex].children[i].checked && document.querySelectorAll(".element_exam")[examIndex].children[i].getAttribute("type") == "radio" && document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.isawnser == 0 && !document.querySelectorAll(".element_exam")[examIndex].children[i].dataset.anchor){
             document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span class='element_checkCross' style='text-decoration:none; color:red; font-weight:bold'>\ ✘</span>";
         }
     }
-    /* Turn button grey, inactive */
-    document.querySelectorAll(".element_exam_submit")[examIndex].classList.add("element_exam_submit_inactive");
-    document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = "grey";
-    document.querySelectorAll(".element_exam_submit")[examIndex].style.border = "grey";
-    document.querySelectorAll(".element_exam_submit")[examIndex].setAttribute("onclick", "");
-    document.querySelectorAll(".element_exam_reset")[examIndex].style.color = "var(--current_color)";
 }
+/* Button to reset the exam */
 function element_exam_reset(examIndex){
-    /* Turn button green, active */
+    /* Turn button green, onclick --> active */
     document.querySelectorAll(".element_exam_submit")[examIndex].classList.remove("element_exam_submit_inactive");
     document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = null;
     document.querySelectorAll(".element_exam_submit")[examIndex].style.border = null;
     document.querySelectorAll(".element_exam_submit")[examIndex].setAttribute("onclick", "element_exam_showResult("+examIndex+")");
     document.querySelectorAll(".element_exam_reset")[examIndex].style.color = "grey";
+
+    /* Remove checks and crosses from previous try */
     var checksCrosses = document.querySelectorAll(".element_exam")[examIndex].querySelectorAll(".element_checkCross");
     for(var i = 0; i < checksCrosses.length; i++){
         checksCrosses[i].parentNode.removeChild(checksCrosses[i]);
