@@ -162,6 +162,12 @@ function element_exam_checkAwnsers(examIndex){
             document.querySelectorAll(".element_exam")[examIndex].children[i+1].innerHTML += "<span class='element_checkCross' style='text-decoration:none; color:red; font-weight:bold'>\ ✘</span>";
         }
     }
+    /* Turn button grey, onclick --> inactive */
+    document.querySelectorAll(".element_exam_submit")[examIndex].classList.add("element_exam_submit_inactive");
+    document.querySelectorAll(".element_exam_submit")[examIndex].style.backgroundColor = "grey";
+    document.querySelectorAll(".element_exam_submit")[examIndex].style.border = "grey";
+    document.querySelectorAll(".element_exam_submit")[examIndex].setAttribute("onclick", "");
+    document.querySelectorAll(".element_exam_reset")[examIndex].style.color = "var(--current_color)";
 }
 /* Button to reset the exam */
 function element_exam_reset(examIndex){
