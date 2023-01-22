@@ -195,7 +195,6 @@ html {
             box-shadow: var(--current_boxshadow);
             border-radius: 0.5rem;
             background-color: var(--current_p_background);
-            
         }
 
         #content ul li a {
@@ -207,7 +206,13 @@ html {
             color: #487DE0;
             font-weight: bold;
         }
+        #URI{
+            text-align: center;
+        }
+        #URI img{
 
+            max-width: 300px
+        }
         #kontakt{
             display: block;
             margin: auto;
@@ -220,7 +225,6 @@ html {
             border: none;
             box-shadow: var(--current_boxshadow);
             border-radius: 0.5rem;
-            
         }
         #absenden{
             display: block;
@@ -250,6 +254,24 @@ html {
         #donate-button {
             margin: auto;
             width: 12rem;
+        }
+        
+        #tabelleleiterwiderstand{
+            width: 100%;
+            margin: auto;
+            padding: 0.5rem;
+            font-size: 80%;
+            text-align: center;
+            color: var(--current_color);
+            background-color: var(--current_p_background);
+            box-shadow: var(--current_boxshadow);
+            border-radius: 0.5rem; 
+        }
+        #tabelleleiterwiderstand td{
+            border: 1px solid var(--current_color);
+        }
+        #tabelleleiterwiderstand th{
+            border: 1px solid var(--current_color);
         }
 
     #footer {
