@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="./resources/style.css">
+<a href="./index.html"><img id="logo" src="./resources/TT.png" alt="TorTerra Logo"></a>
+
+<button class="topic_button" onclick="clickDropDownButton('mathe')">Mathe ▾</button>
+<nav class="dropdown">
+    <div class="dropdown_content">
+        <ul>
+            Stochastik
+            <li><a href="../Mathe/Monty-Hall-Problem.html">Monty-Hall-Problem</a></li>
+        </ul> 
+        <ul>
+            Matrizen & Vektoren
+            <li><a href="./Mathe/Matrizen.html">Matrizen</a></li>
+            <li><a href="./Mathe/Vektoren.html">Vektoren</a></li>
+        </ul>
+    </div>
+    <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
+</nav> 
+
+<button class="topic_button" onclick="clickDropDownButton('physik')">Physik ▾</button>
+<nav class="dropdown">
+    <div class="dropdown_content">
+        <ul>
+            Elektrik
+            <li><a href="./Physik/Ohmsches-Gesetz.html">Ohm'sches Gesetz</a></li>
+            <li><a href="./Physik/Leiterwiderstand.html">Leiterwiderstand</a></li>
+        </ul> 
+        <ul>
+            Bewegung  
+            <li><a href="./Physik/Freier-Fall.html">Freier Fall</a></li>
+        </ul> 
+    </div>
+    <span class="close_dropdown" onclick="clickDropDownButton('close_all')"></span>
+</nav>
+
+<button id="dark_mode_button" class="topic_button" onclick="darkMode()"></button>
