@@ -1,0 +1,151 @@
+<!-- physik-leiterwiderstand.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Leiterwiderstand - Grundlagen die jeder wissen sollte</title>
+    <meta property="og:title" content="Leiterwiderstand - Grundlagen die jeder wissen sollte">
+    <meta name ="description" content ="Hier finden Sie alles, was Sie über den Leiterwiderstand wissen müssen.">
+    <meta property="og:description" content="Hier finden Sie alles, was Sie über den Leiterwiderstand wissen müssen.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="../resources/TT.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Leiterwiderstand, Physik, simpel, Erklärung, einfach, Lösung, Hilfe, Wie">
+    <link rel="stylesheet" href="../resources/style.css">
+    <link rel="icon" href="../resources/favicon.ico">
+    <script src="../resources/script.js" defer></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>$(function(){$("#navbar").load("../templates/navbar.html");});</script>
+    <script>$(function(){$("#footer").load("../templates/footer.html");});</script>
+</head>
+
+<body>
+    <nav id="navbar"></nav>
+    
+    <div id="content_container">
+        
+        <div id="content">
+            <h1>Leiterwiderstand</h1>
+            <h2>Simpel erklärt</h2>
+
+            <h4>Inhaltsverzeichnis</h4>
+            <hr>
+            <ul>
+                <li>
+                <a href="#anchorleierwiderstand1">Definition</a>
+                </li>
+                <li>
+                    <a href="#anchorleierwiderstand2">Formel</a>
+                </li>
+                <li>
+                    <a href="#anchorleierwiderstand3">Tabelle</a>
+                </li>
+                <li>
+                    <a href="#anchorleierwiderstand4">Beispiel</a>
+                </li>
+                <li>
+                    <a href="#anchorleierwiderstand5">Übungen</a>
+                </li>
+            </ul>
+
+            <h4 id="anchorleierwiderstand1">Definition</h4>
+            <hr>
+            <p>
+                Der Leiterwiderstand ist der <b>ohmsche Widerstand eines Leiters</b> und unmittelbar abhängig von dem Leitermaterial, dem Leiterquerschnitt und der Leitungslänge.<br>
+                Der Widerstand steigt bei längeren Leitern und fällt bei größeren Leiterquerschnitten.<br>
+                Der <b>Leiterwiderstand</b> \(R\) wird in Ohm angegeben.
+            </p>
+
+            <h4 id="anchorleierwiderstand2">Formel</h4>
+            <hr>
+            <p>
+                <b>Leiterwiderstand</b><br>
+                <br>          
+                \(R=\frac{l}{y*A}\)<br>
+                <br>
+                \(R=\frac{Q*l}{A}\)<br>
+                <br>
+                \(y=\frac{1}{Q}\)<br>
+                <br>
+                R = Leiterwiderstand<br>
+                A = Leiterquerschnitt<br>
+                l = Leiterlänge<br>
+                y = elektr. Leitfähigkeit<br>
+                Q = spezifischer Widerstand
+            </p>
+            
+            <h4 id="anchorleierwiderstand3">Tabelle</h4>
+            <hr>
+            <p>
+                <b>Tabelle: Spezifischer Widerstand und Leitfähigkeit (Beispiele bei 20 °C)</b>          
+            </p>
+            <table id="tabelleleiterwiderstand">
+                <tr>
+                    <th>Material</th>
+                    <th>Spezifischer Widerstand(Q)<br>in \(\frac{\Omega *mm²}{m}\)</th>
+                    <th>Leitfähigkeit<br>in \(\frac{m}{\Omega *mm²}\)</th>
+                </tr>
+                <tr>
+                    <td>Aluminium</td>
+                    <td>0,0278</td>
+                    <td>36,0</td>
+                </tr>
+                <tr>
+                    <td>Kupfer</td>
+                    <td>0,0178</td>
+                    <td>56,0</td>
+                </tr>
+                <tr>
+                    <td>Silber</td>
+                    <td>0,0167</td>
+                    <td>60,0</td>
+                </tr>
+                <tr>
+                    <td>Gold</td>
+                    <td>0,022</td>
+                    <td>45,7</td>
+                </tr>
+            </table>
+
+            <h4 id="anchorleierwiderstand4">Beispiel</h4>
+            <hr>
+            <p>
+                Berechnen Sie den Widerstand eines Kupferleiters mit \(l = 50 m\) Länge und einem Querschnitt von \(A=1,5mm^2\)<br>
+                <br>
+                 Aus Tabelle: \(y=56,0\frac{m}{\Omega *mm²}\)  
+                 <br>
+                 \(R=\frac{l}{y*A}\)
+                 <br>
+                 \(R=\frac{50m}{56,0\frac{m}{\Omega *mm²}*1,5mm²}=0,59\Omega \)
+            </p>
+
+            <h4 id="anchorleierwiderstand5">Übung</h4>
+            <hr>
+                <div class="element_exam">
+                    <p class="frage1">Berechnen Sie den Widerstand eines Kupferleiters mit \(l = 100 m\) Länge und einem Querschnitt von \(A=2,5mm^2\)<br></p>
+                    <input type="radio" name="frage1" data-anchor="#anchorleierwiderstand2" data-isawnser="1"><span>\(0,7143\Omega\)</span><br>
+                    <input type="radio" name="frage1" data-anchor="#anchorleierwiderstand2" data-isawnser="0"><span>\(1,1905\Omega\)</span><br>
+                    <input type="radio" name="frage1" data-anchor="#anchorleierwiderstand2" data-isawnser="0"><span>\(1,7857\Omega\)</span><br>
+                    <br>  
+                  
+                    <p class="frage2">Berechnen Sie den Widerstand eines Aluminiumleiters mit \(l = 250 m\) Länge und einem Querschnitt von \(A=1,5mm^2\)<br></p>
+                    <input type="radio" name="frage2" data-anchor="#anchorleierwiderstand2" data-isawnser="0"><span>\(2,7778\Omega\)</span><br>
+                    <input type="radio" name="frage2" data-anchor="#anchorleierwiderstand2" data-isawnser="1"><span>\(4,6296\Omega\)</span><br>  
+                    <input type="radio" name="frage2" data-anchor="#anchorleierwiderstand2" data-isawnser="0"><span>\(2,9761\Omega\)</span><br>
+                    <br>
+
+                    <button class="element_exam_submit" onclick="element_exam_showResult(0)">Submit</button>
+                    <button class="element_exam_reset" onclick="element_exam_reset(0)">⟳</button>
+                </div>             
+        </div>
+    </div>
+    
+    
+    <footer id="footer"></footer>
+    
+</body>
+</html>

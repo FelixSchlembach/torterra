@@ -1,0 +1,136 @@
+<!-- physik-Ohmsches-Gesetz.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Ohmsches Gesetz - Grundlagen die jeder wissen sollte</title>
+    <meta property="og:title" content="Ohmsches Gesetz - Grundlagen die jeder wissen sollte">
+    <meta name ="description" content ="Hier finden Sie alles, was Sie über das Ohmsche Gesetz wissen müssen.">
+    <meta property="og:description" content="Hier finden Sie alles, was Sie über das Ohmsche Gesetz wissen müssen.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="../resources/TT.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Ohmsches Gesetz, Physik, simpel, Erklärung, einfach, Lösung, Hilfe, Wie">
+    <link rel="stylesheet" href="../resources/style.css">
+    <link rel="icon" href="../resources/favicon.ico">
+    <script src="../resources/script.js" defer></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>$(function(){$("#navbar").load("../templates/navbar.html");});</script>
+    <script>$(function(){$("#footer").load("../templates/footer.html");});</script>
+</head>
+
+<body>
+    <nav id="navbar"></nav>
+    
+    <div id="content_container">
+        
+        <div id="content">
+            <h1>Ohmsches Gesetz</h1>
+            <h2>Simpel erklärt</h2>
+
+            <h4>Inhaltsverzeichnis</h4>
+            <hr>
+            <ul>
+                <li>
+                <a href="#anchorohmschesgesetz1">Definition</a>
+                </li>
+                <li>
+                    <a href="#anchorohmschesgesetz2">Formel</a>
+                </li>
+                <li>
+                    <a href="#anchorohmschesgesetz3">Eselsbrücke</a>
+                </li>
+                <li>
+                    <a href="#anchorohmschesgesetz4">Beispiel</a>
+                </li>
+                <li>
+                    <a href="#anchorohmschesgesetz5">Übungen</a>
+                </li>
+            </ul>
+
+            <h4 id="anchorohmschesgesetz1">Definition</h4>
+            <hr>
+            <p>
+                Das Ohmsche Gesetz stellt den Zusammenhang zwischen Strom \(I\), Spannung \(U\) und Widerstand \(R\) dar.
+            </p>
+
+            <h4 id="anchorohmschesgesetz2">Formel</h4>
+            <hr>
+            <div id="URI">
+                <p>\(U=R*I\)</p><br>
+                <img src="../resources/URI-Abkürzung.png"  alt="Abkürzung des Ohmschen Gesetzes, URI">
+                </div>
+                <p id="formel">
+                    <b>Formelzeichen</b><br>
+                    \(U\) = Spannung<br>
+                    \(R\) = Widerstand<br>
+                    \(I\) = Stromstärke
+                   
+                </p>
+                <p>
+                    Einheit<br>
+                    \(U\) = Volt (\(V\))<br>
+                    \(R\) = Ohm (\(\Omega \))<br>
+                    \(I\) = Ampere (\(A\))
+
+                </p>
+            
+            <h4 id="anchorohmschesgesetz3">Eselsbrücke</h4>
+            <hr>
+            <p>
+                Um sich die Formeln für das Ohmsche Gesetz besser merken zu können, wird das oben gezeigte <b>URI-Dreieck</b> verwendet.<br>
+                Durch dies sieht man, dass:<br>
+                <br>
+                \(U=R*I\)<br>
+                <br>
+                \(I=\frac{U}{R}\)<br>
+                <br>
+                \(R=\frac{U}{I}\).<br>
+                <br>
+            </p>
+            <p>
+                Am besten merkt man sich das Wort <b>"URI"</b>, so kann man sich immer an die Formel erinnern.
+            </p>
+            <h4 id="anchorohmschesgesetz4">Beispiel</h4>
+            <hr>
+            <p>
+                Welche Stromstärke fließt durch eine Glühlampe für \(4,5V\), die im Betrieb einen Widerstand von \(1,5\Omega\) hat?
+                <br>
+                <br>
+                \(R=\frac{U}{I}\)<br>
+                <br>
+                \(I=\frac{U}{R}\)<br>
+                <br>
+                \(I=\frac{4,5V}{1,5\Omega}=3A\)
+            </p>
+
+            <h4 id="anchorohmschesgesetz5">Übung</h4>
+            <hr>
+                <div class="element_exam">
+                    <p class="frage1">Welche Spannung liegt an einem Widerstand von \(500\Omega\), durch den \(0,2A\) fließen?<br></p>
+                    <input type="radio" name="frage1" data-anchor="#anchorohmschesgesetz2" data-isawnser="0"><span>\(200V\)</span><br>
+                    <input type="radio" name="frage1" data-anchor="#anchorohmschesgesetz2" data-isawnser="1"><span>\(100V\)</span><br>
+                    <input type="radio" name="frage1" data-anchor="#anchorohmschesgesetz2" data-isawnser="0"><span>\(230V\)</span><br>
+                    <br>  
+                  
+                    <p class="frage2">Ein Lötkolben nimmt an \(230V\) den Strom \(0,22A\) auf.<br>Welchen Widerstand hat die Heizwicklung?</p>
+                    <input type="radio" name="frage2" data-anchor="#anchorohmschesgesetz2" data-isawnser="0"><span>\(1000\Omega\)</span><br>
+                    <input type="radio" name="frage2" data-anchor="#anchorohmschesgesetz2" data-isawnser="1"><span>\(1045\Omega\)</span><br>  
+                    <input type="radio" name="frage2" data-anchor="#anchorohmschesgesetz2" data-isawnser="0"><span>\(1060\Omega\)</span><br>
+                    <br>
+
+                    <button class="element_exam_submit" onclick="element_exam_showResult(0)">Submit</button>
+                    <button class="element_exam_reset" onclick="element_exam_reset(0)">⟳</button>
+                </div>             
+        </div>
+    </div>
+    
+    
+    <footer id="footer"></footer>
+    
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Mathe und Physik simpel erklärt - Impressum</title>
+    <meta property="og:title" content="Mathe und Physik simpel erklärt - Impressum">
+    <meta name ="description" content ="Hier findest du diverse Mathe und Physik Themen simpel und anschaulich erklärt. Hier findest du alles was du zum Erfolg in der Mittel- und Oberstufe brauchst!">
+    <meta property="og:description" content="Hier findest du diverse Mathe und Physik Themen simpel und anschaulich erklärt. Hier findest du alles was du zum Erfolg in der Mittel- und Oberstufe brauchst!">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:image" content="./resources/TT.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mathe, Physik, simpel, Erklärung, einfach, Lösung, Hilfe, Wie">
+    <link rel="stylesheet" href="./resources/style.css">
+    <link rel="icon" href="./resources/favicon.ico">
+    <script src="./resources/script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>$(function(){$("#navbar").load("./templates/navbar_ii.html");});</script>
+    <script>$(function(){$("#footer").load("./templates/footer_ii.html");});</script>
+</head>
+
+<body>
+
+    <nav id="navbar"></nav>
+
+    <div id="content_container">
+        
+        <div id="content">
+            <h1 class="h1_animated">Impressum</h1>
+            <h2>Team Torterra</h2>
+            <hr>
+            <br>
+            <form action="https://formspree.io/f/mayznjap" method="POST">
+                <input name="Vormane" class="kontakt" type="text" placeholder="Vorname">
+                <input name="Nachname" class="kontakt" type="text" placeholder="Nachname">
+                <input name="Email" class="kontakt" type="email" placeholder="Email" required>
+                <textarea name="Nachricht" class="kontakt" rows="8" placeholder="Nachricht" required></textarea>
+                <input id="absenden" type="submit" value="Senden 🚀">
+            </form>
+            <br>
+            <br>
+            <h1 class="h1_animated">WEB Projekt</h1>
+            <h2> Team Torterra WS 2022/23</h2>
+            <hr>
+            <br>
+            <table id="Impressum_Daten">
+                <tr>
+                    <td>
+                        <b><i>Eric Demuth</i></b>
+                    </td>
+                    <td>
+                        <b><i>Felix Schlembach</i></b>
+                    </td>
+                </tr>
+            </table>
+            <p id="email_text_center"><b>E-Mail</b><br> <i>torterra2023@gmail.com</i></p>
+            
+            <div id="donate-button-container">
+                <div id="donate-button"></div>
+                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"></script>
+                <script>
+                PayPal.Donation.Button({
+                env:'production',
+                hosted_button_id:'S984AJ5WJYAU8',
+                image: {
+                src:'https://pics.paypal.com/00/s/MzkyMmJkOWQtYjQ5OC00MTZiLTlhMmItYjJlYjZlZWY3ZWJk/file.PNG',
+                alt:'Spenden mit dem PayPal-Button',
+                title:'PayPal - The safer, easier way to pay online!',
+                }
+                }).render('#donate-button');
+                </script>
+            </div>
+                
+            
+            <div id="logo2_container">
+                <img id="logo2" src="./resources/TorTerra.png" alt="Team TorTerra Logo">
+            </div>
+        </div>
+
+    </div>
+
+    <footer id="footer"></footer>
+    
+</body>
+</html>
